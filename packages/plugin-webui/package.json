@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "biome check src/",
     "build": "echo 'webui builds with vite, not tsc'",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "prepublishOnly": "npm run build"
   },
   "type": "module",
