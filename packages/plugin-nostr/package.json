@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-nostr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nostr protocol integration for WOPR — encrypted DMs and public replies",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

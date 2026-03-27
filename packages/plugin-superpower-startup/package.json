@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-superpower-startup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Launch Your Startup -- a $5 co-founder who thinks about product, market, and execution. Never asks for equity.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

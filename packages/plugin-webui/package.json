@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run build"
   },
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "wopr": {
     "minVersion": "1.0.0",
     "provides": [

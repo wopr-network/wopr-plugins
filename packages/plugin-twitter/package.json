@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-twitter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Twitter/X channel plugin for WOPR — post tweets, reply, DM, and stream mentions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

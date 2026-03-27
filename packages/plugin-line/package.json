@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-line",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LINE channel plugin for WOPR using LINE Bot SDK",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

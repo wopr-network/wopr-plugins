@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-twitch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Twitch chat integration for WOPR with whispers and channel point redemptions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

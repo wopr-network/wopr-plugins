@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-obsidian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Obsidian vault integration for WOPR — search, read, write notes and inject vault context into conversations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-soul",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Soul/personality plugin for WOPR — persistent agent identity via SOUL.md",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-metrics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Metrics and observability plugin for WOPR — records, queries, and exports platform metrics",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

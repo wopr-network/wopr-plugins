@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-evangelist",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Market Your Product superpower — turns any WOPR bot into a marketing machine",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

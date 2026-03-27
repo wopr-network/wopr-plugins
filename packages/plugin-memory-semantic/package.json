@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-memory-semantic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Semantic memory search with embeddings, auto-recall, and auto-capture for WOPR",
   "type": "module",
   "main": "dist/index.js",

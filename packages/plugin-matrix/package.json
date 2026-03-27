@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-matrix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Matrix channel plugin for WOPR - Enables AI conversations in Matrix rooms with E2EE support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

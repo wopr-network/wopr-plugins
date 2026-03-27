@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-cron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cron scheduling plugin for WOPR - Recurring and one-time message injection with script execution",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

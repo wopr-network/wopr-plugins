@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-imagegen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Image generation plugin for WOPR — DALL-E, Replicate, and more",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-acp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ACP IDE integration plugin for WOPR — Zed and VS Code via NDJSON stdio",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

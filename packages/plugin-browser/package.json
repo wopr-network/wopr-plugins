@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-browser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Browser automation plugin for WOPR — Playwright-based web interaction",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
