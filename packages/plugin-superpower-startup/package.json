@@ -1,0 +1,38 @@
+{
+  "name": "@wopr-network/wopr-plugin-superpower-startup",
+  "version": "1.0.0",
+  "description": "Launch Your Startup -- a $5 co-founder who thinks about product, market, and execution. Never asks for equity.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "superpower",
+    "startup",
+    "co-founder",
+    "product"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

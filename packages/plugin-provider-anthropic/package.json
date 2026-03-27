@@ -1,0 +1,39 @@
+{
+  "author": "",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.2.80",
+    "@anthropic-ai/claude-code": "^2.1.81",
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.11.0"
+  },
+  "description": "Anthropic Claude provider plugin for WOPR",
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "provider",
+    "anthropic",
+    "claude"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-provider-anthropic",
+  "peerDependencies": {},
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "2.4.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

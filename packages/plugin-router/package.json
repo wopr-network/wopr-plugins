@@ -1,0 +1,33 @@
+{
+  "description": "Message routing middleware for WOPR",
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@wopr-network/plugin-types": "workspace:*",
+    "esbuild": "^0.27.3",
+    "jsdom": "^29.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-router",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.3.0",
+  "wopr": {
+    "minVersion": "1.0.0",
+    "type": "plugin"
+  },
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

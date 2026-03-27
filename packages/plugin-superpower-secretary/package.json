@@ -1,0 +1,38 @@
+{
+  "name": "@wopr-network/wopr-plugin-superpower-secretary",
+  "version": "1.0.0",
+  "description": "Fire Your Secretary -- a proactive chief of staff that manages your schedule, drafts emails, and never calls in sick",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "plugin",
+    "superpower",
+    "secretary",
+    "ai",
+    "automation",
+    "wopr-plugin"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@wopr-network/wopr-plugin-cron",
+  "version": "1.0.0",
+  "description": "Cron scheduling plugin for WOPR - Recurring and one-time message injection with script execution",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "cron",
+    "scheduling",
+    "automation"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vitest/ui": "^4.0.18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

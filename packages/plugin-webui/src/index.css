@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wopr-bg: #0a0a0f;
+  --color-wopr-panel: #12121a;
+  --color-wopr-border: #1e1e2e;
+  --color-wopr-accent: #10b981;
+  --color-wopr-text: #e2e8f0;
+  --color-wopr-muted: #64748b;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+	body {
+		@apply bg-wopr-bg text-wopr-text font-mono;
+	}
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-wopr-bg;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-wopr-border rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-wopr-muted;
+}
+
+/* Streaming text animation */
+@keyframes blink {
+	0%,
+	50% {
+		opacity: 1;
+	}
+	51%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.cursor-blink::after {
+	content: "▋";
+	animation: blink 1s infinite;
+	@apply text-wopr-accent;
+}

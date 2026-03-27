@@ -1,0 +1,44 @@
+{
+  "author": "TSavo",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "@wopr-network/plugin-types": "workspace:*",
+    "pino": "^10.3.1",
+    "qrcode-terminal": "^0.12.0",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "description": "WhatsApp plugin for WOPR using Baileys (WhatsApp Web)",
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/qrcode-terminal": "^0.12.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "whatsapp",
+    "baileys",
+    "whatsapp-web"
+  ],
+  "license": "MIT",
+  "overrides": {
+    "axios": "^1.13.5"
+  },
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-whatsapp",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module"
+}

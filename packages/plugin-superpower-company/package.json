@@ -1,0 +1,38 @@
+{
+  "name": "@wopr-network/wopr-plugin-superpower-company",
+  "version": "1.0.0",
+  "description": "Run a Company from Discord -- dedicated employee bots per channel that wake on schedule and coordinate with each other",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "superpower",
+    "company",
+    "discord",
+    "team"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

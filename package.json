@@ -1,0 +1,26 @@
+{
+  "name": "@wopr-network/wopr-plugins",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.4",
+  "scripts": {
+    "lint": "turbo lint",
+    "build": "turbo build",
+    "test": "turbo test",
+    "validate": "turbo validate-package",
+    "check": "turbo lint build test",
+    "generate-registry": "tsx scripts/generate-registry.ts",
+    "validate-manifests": "tsx scripts/validate-manifests.ts",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build && changeset publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.4",
+    "@changesets/cli": "^2.29.4",
+    "tsx": "^4.19.4",
+    "turbo": "^2.5.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

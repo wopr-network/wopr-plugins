@@ -1,0 +1,51 @@
+{
+  "name": "@wopr-network/wopr-plugin-websearch",
+  "version": "1.0.0",
+  "description": "Web search plugin for WOPR — Brave, Google, and xAI with fallback chain and SSRF protection",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "web-search",
+    "brave",
+    "google",
+    "xai"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "wopr": {
+    "name": "wopr-plugin-websearch",
+    "version": "1.0.0",
+    "description": "Web search via Brave, Google, and xAI",
+    "provides": {
+      "capabilities": [
+        {
+          "type": "web-search",
+          "id": "wopr-websearch",
+          "displayName": "Web Search"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

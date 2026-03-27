@@ -1,0 +1,47 @@
+{
+  "author": "",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.11.0"
+  },
+  "optionalDependencies": {
+    "@opencode-ai/sdk": "^1.2.27"
+  },
+  "description": "OpenCode AI provider plugin for WOPR",
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "provider",
+    "opencode",
+    "ai-coding"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-provider-opencode",
+  "peerDependencies": {},
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "1.1.0",
+  "wopr": {
+    "plugin": {
+      "category": "provider",
+      "description": "OpenCode AI SDK for coding tasks",
+      "name": "provider-opencode"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

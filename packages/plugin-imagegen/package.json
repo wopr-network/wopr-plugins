@@ -1,0 +1,53 @@
+{
+  "name": "@wopr-network/wopr-plugin-imagegen",
+  "version": "1.0.0",
+  "description": "Image generation plugin for WOPR — DALL-E, Replicate, and more",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "image",
+    "generation",
+    "dalle",
+    "openai",
+    "ai"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "wopr": {
+    "name": "wopr-plugin-imagegen",
+    "version": "1.0.0",
+    "description": "Image generation via DALL-E, Replicate, and more",
+    "requires": {
+      "capabilities": [
+        "image-generation"
+      ]
+    },
+    "provides": {
+      "capabilities": []
+    }
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vitest/ui": "^4.0.18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

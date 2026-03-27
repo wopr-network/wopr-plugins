@@ -1,0 +1,35 @@
+{
+  "name": "@wopr-network/wopr-plugin-notify",
+  "version": "1.0.0",
+  "description": "Notification plugin for WOPR — sends notifications to configured channels",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "notify",
+    "notifications"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

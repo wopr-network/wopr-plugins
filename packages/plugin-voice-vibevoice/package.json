@@ -1,0 +1,64 @@
+{
+  "author": "",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "description": "WOPR TTS plugin for VibeVoice (OpenAI-compatible)",
+  "devDependencies": {
+    "@types/node": "^25.1.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "tts",
+    "vibevoice",
+    "voice",
+    "speech"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-voice-vibevoice",
+  "peerDependencies": {
+    "zod": "^4.3.6"
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "wopr": {
+    "plugin": {
+      "capabilities": [
+        "tts"
+      ],
+      "category": "voice",
+      "description": "Microsoft VibeVoice TTS (requires 16GB+ VRAM)",
+      "install": [
+        {
+          "image": "valyriantech/vibevoice_server",
+          "kind": "docker",
+          "label": "Pull VibeVoice server",
+          "tag": "latest"
+        }
+      ],
+      "lifecycle": {
+        "shutdownBehavior": "graceful"
+      },
+      "name": "voice-vibevoice",
+      "requires": {
+        "docker": [
+          "valyriantech/vibevoice_server:latest"
+        ]
+      },
+      "type": "tts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

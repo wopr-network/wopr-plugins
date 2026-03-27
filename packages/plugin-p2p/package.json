@@ -1,0 +1,57 @@
+{
+  "author": "",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "hyperswarm": "^4.7.15",
+    "winston": "^3.11.0",
+    "zod": "^4.3.6"
+  },
+  "description": "P2P networking plugin for WOPR with Hyperswarm, identity management, and A2A tools",
+  "devDependencies": {
+    "@types/node": "^25.3.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "p2p",
+    "hyperswarm",
+    "peer-to-peer",
+    "a2a"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-p2p",
+  "peerDependencies": {
+    "discord.js": "^14.25.1"
+  },
+  "peerDependenciesMeta": {
+    "discord.js": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "wopr": {
+    "plugin": {
+      "category": "network",
+      "description": "P2P networking with Hyperswarm, identity, trust, and A2A tools",
+      "name": "p2p"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

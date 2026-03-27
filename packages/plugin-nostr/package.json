@@ -1,0 +1,40 @@
+{
+  "name": "@wopr-network/wopr-plugin-nostr",
+  "version": "1.0.0",
+  "description": "Nostr protocol integration for WOPR — encrypted DMs and public replies",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "nostr-tools": "^2.10.0"
+  },
+  "peerDependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "nostr",
+    "decentralized",
+    "protocol"
+  ],
+  "author": "WOPR",
+  "license": "MIT"
+}

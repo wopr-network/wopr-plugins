@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "lint": {
+      "inputs": ["src/**", "biome.json", "../../biome.json"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"],
+      "inputs": ["src/**", "tsconfig.json", "../../tooling/tsconfig.base.json"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "tests/**", "**/*.test.ts"]
+    },
+    "validate-package": {
+      "dependsOn": ["build"],
+      "inputs": ["dist/**", "package.json"]
+    }
+  }
+}

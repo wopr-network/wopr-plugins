@@ -1,0 +1,120 @@
+{
+  "name": "@wopr-network/wopr-plugin-memory-semantic",
+  "version": "1.0.0",
+  "description": "Semantic memory search with embeddings, auto-recall, and auto-capture for WOPR",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "openai": "^6.25.0",
+    "usearch": "^2.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "peerDependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "wopr": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "wopr",
+    "plugin",
+    "memory",
+    "semantic",
+    "embeddings",
+    "vector-search"
+  ],
+  "license": "MIT",
+  "wopr": {
+    "name": "@wopr-network/wopr-plugin-memory-semantic",
+    "version": "1.0.0",
+    "description": "Semantic memory search with embeddings, auto-recall, and auto-capture",
+    "capabilities": [
+      {
+        "name": "memory",
+        "description": "Semantic memory with auto-capture and auto-recall"
+      },
+      {
+        "name": "semantic-search",
+        "description": "Semantic search over stored memories using vector embeddings"
+      },
+      {
+        "name": "auto-recall",
+        "description": "Automatically injects relevant memories into LLM context"
+      },
+      {
+        "name": "auto-capture",
+        "description": "Automatically extracts and stores key facts from conversations"
+      }
+    ],
+    "provides": {
+      "capabilities": [
+        {
+          "type": "memory",
+          "id": "semantic-memory",
+          "displayName": "Semantic Memory (Embeddings)"
+        },
+        {
+          "type": "semantic-search",
+          "id": "semantic-search",
+          "displayName": "Semantic Search"
+        },
+        {
+          "type": "auto-recall",
+          "id": "auto-recall",
+          "displayName": "Auto-Recall"
+        },
+        {
+          "type": "auto-capture",
+          "id": "auto-capture",
+          "displayName": "Auto-Capture"
+        }
+      ]
+    },
+    "plugin": {
+      "entry": "dist/index.js"
+    },
+    "webmcpTools": [
+      {
+        "name": "searchMemory",
+        "description": "Search the bot's semantic memory for relevant information"
+      },
+      {
+        "name": "listMemoryCollections",
+        "description": "List available memory collections"
+      },
+      {
+        "name": "getMemoryStats",
+        "description": "Get memory index statistics"
+      }
+    ],
+    "category": "memory",
+    "tags": [
+      "memory",
+      "semantic",
+      "embeddings",
+      "vector-search",
+      "auto-recall"
+    ],
+    "icon": "🧠"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
+}

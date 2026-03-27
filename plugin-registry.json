@@ -1,0 +1,1233 @@
+{
+  "version": "1.0.0",
+  "generated": "2026-03-27T04:11:14.092Z",
+  "count": 63,
+  "plugins": [
+    {
+      "name": "@wopr-network/wopr-plugin-acp",
+      "version": "1.0.0",
+      "description": "ACP IDE integration plugin for WOPR — Zed and VS Code via NDJSON stdio",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "acp",
+        "ide",
+        "zed",
+        "vscode",
+        "agent-client-protocol"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-acp"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-bluebubbles",
+      "version": "1.0.0",
+      "description": "BlueBubbles iMessage/SMS bridge plugin for WOPR",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "bluebubbles",
+        "imessage",
+        "sms",
+        "bridge"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-bluebubbles"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-browser",
+      "version": "1.0.0",
+      "description": "Browser automation plugin for WOPR — Playwright-based web interaction",
+      "category": "utility",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "browser",
+        "playwright",
+        "automation"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-browser"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-canvas",
+      "version": "1.0.0",
+      "description": "Canvas visual workspace plugin for WOPR",
+      "category": "media",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "canvas",
+        "visual",
+        "workspace"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-canvas"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-channel-discord-voice",
+      "version": "1.0.0",
+      "description": "Discord voice channel integration for WOPR - Enables voice conversations in Discord",
+      "category": "channel",
+      "tags": [
+        "wopr-plugin",
+        "wopr",
+        "plugin",
+        "discord",
+        "voice",
+        "channel",
+        "stt",
+        "tts",
+        "audio"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-channel-discord-voice"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-cron",
+      "version": "1.0.0",
+      "description": "Cron scheduling plugin for WOPR - Recurring and one-time message injection with script execution",
+      "category": "utility",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "cron",
+        "scheduling",
+        "automation"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-cron"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-discord",
+      "version": "2.12.0",
+      "description": "Discord bot integration for WOPR - Enables AI conversations in Discord channels",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "discord",
+        "bot",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-discord"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-evangelist",
+      "version": "0.1.0",
+      "description": "Market Your Product superpower — turns any WOPR bot into a marketing machine",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "superpower",
+        "marketing",
+        "evangelist",
+        "content"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-evangelist"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-exec",
+      "version": "0.1.0",
+      "description": "",
+      "category": "utility",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-exec"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-feishu",
+      "version": "1.0.0",
+      "description": "Feishu/Lark channel plugin for WOPR",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "feishu",
+        "lark",
+        "bot",
+        "bytedance"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-feishu"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-googlechat",
+      "version": "1.0.0",
+      "description": "Google Chat integration for WOPR - Google Workspace messaging",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "googlechat",
+        "google-workspace",
+        "google-chat"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-googlechat"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-http",
+      "version": "0.1.0",
+      "description": "",
+      "category": "utility",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-http"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-imagegen",
+      "version": "1.0.0",
+      "description": "Image generation plugin for WOPR — DALL-E, Replicate, and more",
+      "category": "media",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "image",
+        "generation",
+        "dalle",
+        "openai",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-imagegen"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-imessage",
+      "version": "1.0.0",
+      "description": "iMessage/SMS integration for WOPR via imsg CLI (macOS only)",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "imessage",
+        "sms",
+        "macos"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-imessage"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-irc",
+      "version": "1.0.0",
+      "description": "IRC channel plugin for WOPR - Enables AI conversations in IRC channels",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "irc",
+        "bot",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-irc"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-line",
+      "version": "1.0.0",
+      "description": "LINE channel plugin for WOPR using LINE Bot SDK",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "plugin",
+        "line",
+        "line-bot",
+        "messaging"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-line"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-matrix",
+      "version": "1.0.0",
+      "description": "Matrix channel plugin for WOPR - Enables AI conversations in Matrix rooms with E2EE support",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "matrix",
+        "bot",
+        "ai",
+        "e2ee"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-matrix"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-mattermost",
+      "version": "1.0.0",
+      "description": "Mattermost channel plugin for WOPR",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "mattermost",
+        "bot",
+        "chat",
+        "self-hosted"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-mattermost"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-mcp",
+      "version": "0.1.0",
+      "description": "Universal MCP bridge for WOPR - wraps any MCP server as A2A tools",
+      "category": "integration",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "mcp",
+        "tools",
+        "a2a"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-mcp"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-memory-obsidian",
+      "version": "1.0.0",
+      "description": "Auto-store and recall conversation memories in your Obsidian vault",
+      "category": "memory",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "memory",
+        "obsidian",
+        "recall"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-memory-obsidian"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-memory-semantic",
+      "version": "1.0.0",
+      "description": "Semantic memory search with embeddings, auto-recall, and auto-capture for WOPR",
+      "category": "memory",
+      "tags": [
+        "wopr",
+        "plugin",
+        "memory",
+        "semantic",
+        "embeddings",
+        "vector-search"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-memory-semantic"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-metrics",
+      "version": "1.0.0",
+      "description": "Metrics and observability plugin for WOPR — records, queries, and exports platform metrics",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "metrics",
+        "observability"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-metrics"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-msteams",
+      "version": "1.0.0",
+      "description": "Microsoft Teams plugin for WOPR using Azure Bot Framework",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "microsoft-teams",
+        "teams",
+        "azure-bot",
+        "bot-framework"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-msteams"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-nostr",
+      "version": "1.0.0",
+      "description": "Nostr protocol integration for WOPR — encrypted DMs and public replies",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "nostr",
+        "decentralized",
+        "protocol"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-nostr"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-notify",
+      "version": "1.0.0",
+      "description": "Notification plugin for WOPR — sends notifications to configured channels",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "notify",
+        "notifications"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-notify"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-obsidian",
+      "version": "1.0.0",
+      "description": "Obsidian vault integration for WOPR — search, read, write notes and inject vault context into conversations",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "obsidian",
+        "notes",
+        "vault",
+        "memory",
+        "pkm"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-obsidian"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-p2p",
+      "version": "1.0.0",
+      "description": "P2P networking plugin for WOPR with Hyperswarm, identity management, and A2A tools",
+      "category": "network",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "p2p",
+        "hyperswarm",
+        "peer-to-peer",
+        "a2a"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-p2p"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-provider-anthropic",
+      "version": "2.4.0",
+      "description": "Anthropic Claude provider plugin for WOPR",
+      "category": "provider",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "provider",
+        "anthropic",
+        "claude"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-provider-anthropic"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-provider-codex",
+      "version": "2.0.0",
+      "description": "Codex agent SDK provider for WOPR",
+      "category": "provider",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "provider",
+        "codex",
+        "agent-sdk"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-provider-codex"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-provider-kimi",
+      "version": "1.6.0",
+      "description": "Kimi provider with auto-installation (requires Python 3.12+)",
+      "category": "provider",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "provider",
+        "kimi"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-provider-kimi"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-provider-openai",
+      "version": "2.2.0",
+      "description": "OpenAI provider plugin for WOPR",
+      "category": "provider",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "provider",
+        "openai",
+        "codex",
+        "agent-sdk"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-provider-openai"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-provider-opencode",
+      "version": "1.1.0",
+      "description": "OpenCode AI provider plugin for WOPR",
+      "category": "provider",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "provider",
+        "opencode",
+        "ai-coding"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-provider-opencode"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-reddit",
+      "version": "0.1.0",
+      "description": "Reddit channel plugin for WOPR - Enables AI conversations on Reddit",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "plugin",
+        "reddit",
+        "bot",
+        "ai",
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-reddit"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-router",
+      "version": "0.3.0",
+      "description": "Message routing middleware for WOPR",
+      "category": "system",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-router"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-sandbox",
+      "version": "1.0.0",
+      "description": "Docker-based session isolation for WOPR — container lifecycle, per-session context, tool policy engine",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "sandbox",
+        "docker",
+        "isolation"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-sandbox"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-setup",
+      "version": "0.1.0",
+      "description": "Conversational setup plugin for WOPR — configures plugins via chat",
+      "category": "system",
+      "tags": [],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-setup"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-signal",
+      "version": "1.0.0",
+      "description": "Signal plugin for WOPR using signal-cli",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "signal",
+        "signal-cli",
+        "messaging"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-signal"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-skills",
+      "version": "1.0.0",
+      "description": "Skills discovery, state management, and REST API for WOPR",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "skills",
+        "ai",
+        "automation"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-skills"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-slack",
+      "version": "1.0.0",
+      "description": "Slack integration for WOPR - Socket Mode and HTTP webhook support",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "slack",
+        "bot",
+        "chat"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-slack"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-soul",
+      "version": "1.0.0",
+      "description": "Soul/personality plugin for WOPR — persistent agent identity via SOUL.md",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "soul",
+        "personality",
+        "identity",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-soul"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-superpower-company",
+      "version": "1.0.0",
+      "description": "Run a Company from Discord -- dedicated employee bots per channel that wake on schedule and coordinate with each other",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "superpower",
+        "company",
+        "discord",
+        "team"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-superpower-company"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-superpower-secretary",
+      "version": "1.0.0",
+      "description": "Fire Your Secretary -- a proactive chief of staff that manages your schedule, drafts emails, and never calls in sick",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "plugin",
+        "superpower",
+        "secretary",
+        "ai",
+        "automation",
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-superpower-secretary"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-superpower-startup",
+      "version": "1.0.0",
+      "description": "Launch Your Startup -- a $5 co-founder who thinks about product, market, and execution. Never asks for equity.",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "superpower",
+        "startup",
+        "co-founder",
+        "product"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-superpower-startup"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-tailscale-funnel",
+      "version": "1.0.0",
+      "description": "Expose WOPR services externally via Tailscale Funnel",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "tailscale",
+        "funnel",
+        "tunnel"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-tailscale-funnel"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-telegram",
+      "version": "1.0.0",
+      "description": "Telegram plugin for WOPR using Grammy",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "telegram",
+        "grammy",
+        "bot"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-telegram"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-tools",
+      "version": "2.0.0",
+      "description": "Meta package providing http and exec capabilities - depends on wopr-plugin-http and wopr-plugin-exec",
+      "category": "utility",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "tools",
+        "http",
+        "exec",
+        "fetch",
+        "meta"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-tools"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-twitch",
+      "version": "1.0.0",
+      "description": "Twitch chat integration for WOPR with whispers and channel point redemptions",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "twitch",
+        "chat",
+        "bot",
+        "streaming"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-twitch"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-twitter",
+      "version": "0.1.0",
+      "description": "Twitter/X channel plugin for WOPR — post tweets, reply, DM, and stream mentions",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "twitter",
+        "x",
+        "bot",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-twitter"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-videogen",
+      "version": "1.0.0",
+      "description": "Video generation capability plugin for WOPR — /video in any channel",
+      "category": "media",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "videogen",
+        "video",
+        "ai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-videogen"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-call",
+      "version": "1.0.0",
+      "description": "Voice call orchestration plugin for WOPR — coordinates TTS + STT for full voice conversations",
+      "category": "voice",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "voice",
+        "tts",
+        "stt",
+        "voice-call"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-call"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-chatterbox",
+      "version": "1.0.0",
+      "description": "WOPR TTS plugin for Chatterbox (OpenAI-compatible)",
+      "category": "voice",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "tts",
+        "chatterbox",
+        "voice",
+        "speech"
+      ],
+      "capabilities": [],
+      "requires": {
+        "docker": [
+          "devnen/chatterbox-tts-server:latest"
+        ]
+      },
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-chatterbox"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-cli",
+      "version": "1.0.0",
+      "description": "CLI commands for WOPR voice operations",
+      "category": "voice",
+      "tags": [
+        "voice",
+        "cli",
+        "tts",
+        "stt",
+        "transcription"
+      ],
+      "capabilities": [],
+      "requires": {
+        "capabilities": []
+      },
+      "provides": {
+        "capabilities": [],
+        "commands": [
+          "voice"
+        ]
+      },
+      "maturity": "stable",
+      "path": "packages/plugin-voice-cli",
+      "icon": "terminal"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-deepgram-stt",
+      "version": "1.0.0",
+      "description": "Deepgram STT provider using nova-3 model",
+      "category": "voice",
+      "tags": [
+        "voice",
+        "stt",
+        "deepgram",
+        "cloud",
+        "transcription"
+      ],
+      "capabilities": [
+        "provider"
+      ],
+      "requires": {
+        "env": [
+          "DEEPGRAM_API_KEY"
+        ]
+      },
+      "provides": {
+        "capabilities": [
+          {
+            "type": "stt",
+            "name": "deepgram-stt"
+          }
+        ]
+      },
+      "maturity": "stable",
+      "path": "packages/plugin-voice-deepgram-stt",
+      "icon": "microphone"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-elevenlabs-tts",
+      "version": "1.0.0",
+      "description": "ElevenLabs TTS provider for WOPR voice plugin system",
+      "category": "voice",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "tts",
+        "elevenlabs",
+        "voice",
+        "speech-synthesis"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-elevenlabs-tts"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-openai-tts",
+      "version": "1.0.0",
+      "description": "OpenAI TTS provider for WOPR voice",
+      "category": "voice",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {
+        "env": [
+          "OPENAI_API_KEY"
+        ]
+      },
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-openai-tts"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-piper-tts",
+      "version": "1.0.0",
+      "description": "Local Piper TTS provider using Piper in Docker",
+      "category": "voice",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {
+        "docker": [
+          "rhasspy/piper:latest"
+        ]
+      },
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-piper-tts"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-qwen3-tts",
+      "version": "1.0.0",
+      "description": "WOPR TTS plugin for Qwen3-TTS (OpenAI-compatible)",
+      "category": "voice",
+      "tags": [
+        "tts",
+        "qwen3",
+        "voice",
+        "local",
+        "self-hosted"
+      ],
+      "capabilities": [],
+      "requires": {
+        "docker": [
+          "groxaxo/qwen3-tts-openai-fastapi:latest"
+        ]
+      },
+      "provides": {
+        "capabilities": [
+          {
+            "displayName": "Qwen3-TTS",
+            "id": "qwen3-tts",
+            "type": "tts"
+          }
+        ]
+      },
+      "maturity": "stable",
+      "path": "packages/plugin-voice-qwen3-tts",
+      "icon": "🧠"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-vibevoice",
+      "version": "1.0.0",
+      "description": "WOPR TTS plugin for VibeVoice (OpenAI-compatible)",
+      "category": "voice",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "tts",
+        "vibevoice",
+        "voice",
+        "speech"
+      ],
+      "capabilities": [
+        "tts"
+      ],
+      "requires": {
+        "docker": [
+          "valyriantech/vibevoice_server:latest"
+        ]
+      },
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-vibevoice"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-voice-whisper-local",
+      "version": "1.0.0",
+      "description": "Local Whisper STT provider using faster-whisper in Docker",
+      "category": "voice",
+      "tags": [
+        "wopr-plugin"
+      ],
+      "capabilities": [],
+      "requires": {
+        "docker": [
+          "fedirz/faster-whisper-server:latest"
+        ]
+      },
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-voice-whisper-local"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-webhooks",
+      "version": "1.0.0",
+      "description": "HTTP webhook ingress for WOPR - trigger agent runs from external systems",
+      "category": "utility",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "webhooks",
+        "automation"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-webhooks"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-websearch",
+      "version": "1.0.0",
+      "description": "Web search plugin for WOPR — Brave, Google, and xAI with fallback chain and SSRF protection",
+      "category": "plugin",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "plugin",
+        "web-search",
+        "brave",
+        "google",
+        "xai"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-websearch"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-webui",
+      "version": "0.2.0",
+      "description": "Web UI plugin for WOPR - SolidJS-based dashboard for sessions, plugins, and configuration",
+      "category": "system",
+      "tags": [
+        "wopr-plugin",
+        "wopr",
+        "webui",
+        "solidjs",
+        "dashboard"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "experimental",
+      "path": "packages/plugin-webui"
+    },
+    {
+      "name": "@wopr-network/wopr-plugin-whatsapp",
+      "version": "1.0.0",
+      "description": "WhatsApp plugin for WOPR using Baileys (WhatsApp Web)",
+      "category": "channel",
+      "tags": [
+        "wopr",
+        "wopr-plugin",
+        "whatsapp",
+        "baileys",
+        "whatsapp-web"
+      ],
+      "capabilities": [],
+      "requires": {},
+      "provides": [],
+      "maturity": "stable",
+      "path": "packages/plugin-whatsapp"
+    }
+  ]
+}

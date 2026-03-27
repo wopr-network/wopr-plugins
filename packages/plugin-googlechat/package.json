@@ -1,0 +1,41 @@
+{
+  "name": "@wopr-network/wopr-plugin-googlechat",
+  "version": "1.0.0",
+  "description": "Google Chat integration for WOPR - Google Workspace messaging",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "googlechat",
+    "google-workspace",
+    "google-chat"
+  ],
+  "author": "TSavo",
+  "license": "MIT",
+  "dependencies": {
+    "@googleapis/chat": "^44.6.0",
+    "@wopr-network/plugin-types": "workspace:*",
+    "google-auth-library": "^10.6.1",
+    "googleapis": "^144.0.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {}
+}

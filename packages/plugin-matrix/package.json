@@ -1,0 +1,40 @@
+{
+  "name": "@wopr-network/wopr-plugin-matrix",
+  "version": "1.0.0",
+  "description": "Matrix channel plugin for WOPR - Enables AI conversations in Matrix rooms with E2EE support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "matrix",
+    "bot",
+    "ai",
+    "e2ee"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "matrix-bot-sdk": "^0.7.0",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

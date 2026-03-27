@@ -1,0 +1,42 @@
+{
+  "name": "@wopr-network/wopr-plugin-tools",
+  "version": "2.0.0",
+  "description": "Meta package providing http and exec capabilities - depends on wopr-plugin-http and wopr-plugin-exec",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "tools",
+    "http",
+    "exec",
+    "fetch",
+    "meta"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  },
+  "peerDependencies": {
+    "@wopr-network/wopr-plugin-http": "workspace:*",
+    "@wopr-network/wopr-plugin-exec": "workspace:*"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
+}

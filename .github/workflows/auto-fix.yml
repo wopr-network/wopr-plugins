@@ -1,0 +1,51 @@
+name: Auto-Fix
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  check_run:
+    types: [completed]
+
+jobs:
+  auto-fix:
+    if: |
+      (github.event_name == 'check_run' && github.event.check_run.conclusion == 'failure') ||
+      (github.event_name == 'issue_comment' && contains(fromJSON('["greptile-apps[bot]","coderabbitai[bot]"]'), github.event.comment.user.login)) ||
+      (github.event_name == 'pull_request_review_comment' && contains(fromJSON('["greptile-apps[bot]","coderabbitai[bot]"]'), github.event.comment.user.login))
+    runs-on: self-hosted, Linux, X64
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          model: claude-sonnet-4-6-20250514
+          prompt: |
+            Fix all issues flagged by reviewers or CI failures in this PR.
+            Only modify files in packages that are affected.
+            Run `pnpm turbo lint build test --filter='...[origin/main]'` to verify your fixes.
+            If the fix changes package behavior, add a changeset: `pnpm changeset`
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+      - name: Queue merge
+        if: success()
+        run: gh pr merge --auto --squash "${{ github.event.pull_request.number || github.event.issue.number }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

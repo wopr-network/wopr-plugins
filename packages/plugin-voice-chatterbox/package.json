@@ -1,0 +1,58 @@
+{
+  "author": "",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "description": "WOPR TTS plugin for Chatterbox (OpenAI-compatible)",
+  "devDependencies": {
+    "@types/node": "^25.3.2"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "tts",
+    "chatterbox",
+    "voice",
+    "speech"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-voice-chatterbox",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "wopr": {
+    "plugin": {
+      "category": "voice",
+      "description": "Chatterbox TTS with voice cloning",
+      "install": [
+        {
+          "image": "devnen/chatterbox-tts-server",
+          "kind": "docker",
+          "label": "Pull Chatterbox TTS server",
+          "tag": "latest"
+        }
+      ],
+      "name": "voice-chatterbox",
+      "requires": {
+        "docker": [
+          "devnen/chatterbox-tts-server:latest"
+        ]
+      },
+      "type": "tts"
+    }
+  }
+}

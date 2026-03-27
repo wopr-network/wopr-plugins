@@ -1,0 +1,39 @@
+{
+  "name": "@wopr-network/wopr-plugin-mattermost",
+  "version": "1.0.0",
+  "description": "Mattermost channel plugin for WOPR",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.11.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.0"
+  },
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "mattermost",
+    "bot",
+    "chat",
+    "self-hosted"
+  ]
+}

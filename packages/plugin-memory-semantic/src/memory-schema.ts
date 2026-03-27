@@ -1,0 +1,196 @@
+/**
+ * Memory plugin storage schema
+ * Registers files, chunks, meta tables with the Storage API
+ */
+
+import type { PluginSchema, StorageApi } from "@wopr-network/plugin-types";
+import { z } from "zod";
+
+/**
+ * Extended schema with optional migrate function for v0 → v1 migration
+ */
+export interface MigratablePluginSchema extends PluginSchema {
+  migrate?: (fromVersion: number, toVersion: number, storage: StorageApi) => Promise<void>;
+}
+
+export const MEMORY_NAMESPACE = "memory";
+export const MEMORY_SCHEMA_VERSION = 2;
+
+// Use synthetic ID instead of composite PK (path, source) for Storage API compatibility
+const filesSchema = z.object({
+  id: z.string(), // sha256(path + ":" + source)
+  path: z.string(),
+  source: z.string(),
+  hash: z.string(),
+  mtime: z.number().int(),
+  size: z.number().int(),
+});
+
+const chunksSchema = z.object({
+  id: z.string(),
+  path: z.string(),
+  source: z.string(),
+  start_line: z.number().int(),
+  end_line: z.number().int(),
+  hash: z.string(),
+  model: z.string(),
+  text: z.string(),
+  updated_at: z.number().int(),
+  // embedding is managed separately via ALTER TABLE (BLOB column)
+  // instance_id is managed separately via ALTER TABLE (v1->v2 migration)
+  instance_id: z.string().optional(),
+});
+
+const metaSchema = z.object({
+  key: z.string(),
+  value: z.string(),
+});
+
+/**
+ * Create a memory plugin schema with a resolved instanceId for migration.
+ *
+ * The v1→v2 migration tags existing rows with the resolved instanceId rather
+ * than reading process.env.WOPR_INSTANCE_ID directly. This ensures consistency
+ * when config.instanceId differs from the environment variable.
+ *
+ * @param resolvedInstanceId - The already-resolved instanceId
+ *   (i.e. `config.instanceId || process.env.WOPR_INSTANCE_ID`).
+ *   Pass undefined to disable tagging (single-instance mode).
+ */
+export function createMemoryPluginSchema(resolvedInstanceId: string | undefined): MigratablePluginSchema {
+  return {
+    namespace: MEMORY_NAMESPACE,
+    version: MEMORY_SCHEMA_VERSION,
+    tables: {
+      files: {
+        schema: filesSchema,
+        primaryKey: "id",
+        indexes: [{ fields: ["path", "source"], unique: true }, { fields: ["source"] }],
+      },
+      chunks: {
+        schema: chunksSchema,
+        primaryKey: "id",
+        indexes: [{ fields: ["path"] }, { fields: ["source"] }, { fields: ["instance_id"] }],
+      },
+      meta: {
+        schema: metaSchema,
+        primaryKey: "key",
+      },
+    },
+    migrate: async (fromVersion: number, toVersion: number, storage: StorageApi) => {
+      // v0 → v1: Import data from old index.sqlite into wopr.sqlite
+      if (fromVersion === 0 && toVersion >= 1) {
+        await migrateFromLegacyIndexSqlite(storage);
+      }
+      // v1 → v2: Add instance_id column for multi-tenant isolation
+      if (fromVersion < 2 && toVersion >= 2) {
+        await storage.raw(`ALTER TABLE memory_chunks ADD COLUMN instance_id TEXT`).catch(() => {
+          /* non-fatal: column may already exist */
+        });
+        await storage
+          .raw(`CREATE INDEX IF NOT EXISTS idx_memory_chunks_instance_id ON memory_chunks(instance_id)`)
+          .catch(() => {
+            /* non-fatal: index may already exist */
+          });
+        // Tag all existing chunks with the resolved instanceId.
+        // Using the caller-supplied value (config.instanceId || env var) instead of
+        // reading process.env.WOPR_INSTANCE_ID directly avoids a mismatch when
+        // config.instanceId is set and differs from the environment variable.
+        if (resolvedInstanceId) {
+          await storage.raw(`UPDATE memory_chunks SET instance_id = ? WHERE instance_id IS NULL`, [resolvedInstanceId]);
+        }
+      }
+    },
+  };
+}
+
+/** Default schema instance (no instanceId — for backward compat imports). */
+export const memoryPluginSchema: MigratablePluginSchema = createMemoryPluginSchema(undefined);
+
+/**
+ * Migrate data from legacy $WOPR_HOME/memory/index.sqlite to the new Storage API
+ */
+async function migrateFromLegacyIndexSqlite(storage: StorageApi): Promise<void> {
+  const { existsSync } = await import("node:fs");
+  const { join } = await import("node:path");
+  const { renameSync } = await import("node:fs");
+
+  const woprHome = process.env.WOPR_HOME;
+  if (!woprHome) return;
+
+  const legacyDbPath = join(woprHome, "memory", "index.sqlite");
+  if (!existsSync(legacyDbPath)) return;
+
+  // Use ATTACH DATABASE to read from old DB and copy to new tables
+  try {
+    await storage.raw(`ATTACH DATABASE ? AS legacy`, [legacyDbPath]);
+
+    // Migrate files table (add synthetic ID)
+    await storage.raw(`
+      INSERT OR IGNORE INTO memory_files (id, path, source, hash, mtime, size)
+      SELECT
+        lower(hex(randomblob(16))),
+        path, source, hash, mtime, size
+      FROM legacy.files
+    `);
+
+    // Migrate chunks table
+    await storage.raw(`
+      INSERT OR IGNORE INTO memory_chunks (id, path, source, start_line, end_line, hash, model, text, updated_at)
+      SELECT id, path, source, start_line, end_line, hash, model, text, updated_at
+      FROM legacy.chunks
+    `);
+
+    // Migrate FTS5 content
+    await storage
+      .raw(
+        `
+      INSERT OR IGNORE INTO memory_chunks_fts (text, id, path, source, model, start_line, end_line)
+      SELECT text, id, path, source, model, start_line, end_line
+      FROM legacy.chunks_fts
+    `,
+      )
+      .catch(() => {
+        /* old FTS5 may not exist */
+      });
+
+    // Migrate meta table
+    await storage.raw(`
+      INSERT OR IGNORE INTO memory_meta (key, value)
+      SELECT key, value FROM legacy.meta
+    `);
+
+    // Migrate embedding column if it exists
+    await storage
+      .raw(
+        `
+      UPDATE memory_chunks SET embedding = (
+        SELECT legacy.chunks.embedding FROM legacy.chunks
+        WHERE legacy.chunks.id = memory_chunks.id
+      )
+      WHERE EXISTS (
+        SELECT 1 FROM legacy.chunks
+        WHERE legacy.chunks.id = memory_chunks.id
+        AND legacy.chunks.embedding IS NOT NULL
+      )
+    `,
+      )
+      .catch(() => {
+        /* embedding column may not exist in legacy */
+      });
+
+    await storage.raw(`DETACH DATABASE legacy`);
+  } catch (err) {
+    // If ATTACH or migration SQL fails, detach and rethrow
+    try {
+      await storage.raw(`DETACH DATABASE legacy`);
+    } catch {
+      /* non-fatal: DETACH may fail if ATTACH never completed */
+    }
+    throw err;
+  }
+
+  // Rename old DB to mark as migrated (don't delete — safety net).
+  // This runs after DETACH so a rename failure cannot leave the DB attached.
+  renameSync(legacyDbPath, `${legacyDbPath}.migrated`);
+}

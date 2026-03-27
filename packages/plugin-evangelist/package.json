@@ -1,0 +1,41 @@
+{
+  "name": "@wopr-network/wopr-plugin-evangelist",
+  "version": "0.1.0",
+  "description": "Market Your Product superpower — turns any WOPR bot into a marketing machine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "superpower",
+    "marketing",
+    "evangelist",
+    "content"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@wopr-network/semantic-release-config": "^1.0.0",
+    "semantic-release": "^24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

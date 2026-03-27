@@ -1,0 +1,37 @@
+{
+  "name": "@wopr-network/wopr-plugin-obsidian",
+  "version": "1.0.0",
+  "description": "Obsidian vault integration for WOPR — search, read, write notes and inject vault context into conversations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "obsidian",
+    "notes",
+    "vault",
+    "memory",
+    "pkm"
+  ]
+}

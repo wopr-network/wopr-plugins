@@ -1,0 +1,41 @@
+{
+  "name": "@wopr-network/wopr-plugin-reddit",
+  "version": "0.1.0",
+  "description": "Reddit channel plugin for WOPR - Enables AI conversations on Reddit",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "plugin",
+    "reddit",
+    "bot",
+    "ai",
+    "wopr-plugin"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "snoowrap": "^1.23.0",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@wopr-network/semantic-release-config": "^1.0.0",
+    "semantic-release": "^24.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

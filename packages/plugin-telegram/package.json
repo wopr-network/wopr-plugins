@@ -1,0 +1,39 @@
+{
+  "author": "TSavo",
+  "dependencies": {
+    "@grammyjs/auto-retry": "^2.0.2",
+    "@wopr-network/plugin-types": "workspace:*",
+    "grammy": "^1.40.0",
+    "winston": "^3.11.0"
+  },
+  "description": "Telegram plugin for WOPR using Grammy",
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@grammyjs/types": "^3.24.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "telegram",
+    "grammy",
+    "bot"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-telegram",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module"
+}

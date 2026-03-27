@@ -1,0 +1,68 @@
+import { vi } from "vitest";
+import type { WOPRPluginContext } from "../../src/types.js";
+
+export function createMockEventBus() {
+  return {
+    on: vi.fn().mockReturnValue(() => {}),
+    once: vi.fn(),
+    off: vi.fn(),
+    emit: vi.fn().mockResolvedValue(undefined),
+    emitCustom: vi.fn().mockResolvedValue(undefined),
+    listenerCount: vi.fn().mockReturnValue(0),
+  };
+}
+
+export function createMockContext(overrides: Partial<WOPRPluginContext> = {}): WOPRPluginContext {
+  return {
+    inject: vi.fn().mockResolvedValue("Mock response"),
+    logMessage: vi.fn(),
+    getAgentIdentity: vi.fn().mockResolvedValue({ name: "TestBot" }),
+    getUserProfile: vi.fn().mockResolvedValue({ name: "TestUser" }),
+    getSessions: vi.fn().mockReturnValue([]),
+    cancelInject: vi.fn().mockReturnValue(false),
+    events: createMockEventBus() as any,
+    hooks: { on: vi.fn(), off: vi.fn(), offByName: vi.fn(), list: vi.fn().mockReturnValue([]) } as any,
+    registerContextProvider: vi.fn(),
+    unregisterContextProvider: vi.fn(),
+    getContextProvider: vi.fn(),
+    registerChannel: vi.fn(),
+    unregisterChannel: vi.fn(),
+    getChannel: vi.fn(),
+    getChannels: vi.fn().mockReturnValue([]),
+    getChannelsForSession: vi.fn().mockReturnValue([]),
+    registerWebUiExtension: vi.fn(),
+    unregisterWebUiExtension: vi.fn(),
+    getWebUiExtensions: vi.fn().mockReturnValue([]),
+    registerUiComponent: vi.fn(),
+    unregisterUiComponent: vi.fn(),
+    getUiComponents: vi.fn().mockReturnValue([]),
+    getConfig: vi.fn().mockReturnValue({}),
+    saveConfig: vi.fn().mockResolvedValue(undefined),
+    getMainConfig: vi.fn().mockReturnValue({}),
+    registerLLMProvider: vi.fn(),
+    unregisterLLMProvider: vi.fn(),
+    getProvider: vi.fn(),
+    registerConfigSchema: vi.fn(),
+    unregisterConfigSchema: vi.fn(),
+    getConfigSchema: vi.fn(),
+    registerExtension: vi.fn(),
+    unregisterExtension: vi.fn(),
+    getExtension: vi.fn(),
+    listExtensions: vi.fn().mockReturnValue([]),
+    registerSTTProvider: vi.fn(),
+    registerTTSProvider: vi.fn(),
+    getSTT: vi.fn(),
+    getTTS: vi.fn(),
+    hasVoice: vi.fn().mockReturnValue({ stt: false, tts: false }),
+    registerChannelProvider: vi.fn(),
+    unregisterChannelProvider: vi.fn(),
+    getChannelProvider: vi.fn(),
+    getChannelProviders: vi.fn().mockReturnValue([]),
+    registerA2AServer: vi.fn(),
+    log: { info: vi.fn(), warn: vi.fn(), error: vi.fn(), debug: vi.fn() },
+    storage: { register: vi.fn(), getRepository: vi.fn() } as any,
+    getPluginDir: vi.fn().mockReturnValue("/tmp/wopr-test/plugins/imagegen"),
+    dataDir: "/tmp/wopr-test/plugins/imagegen",
+    ...overrides,
+  } as unknown as WOPRPluginContext;
+}

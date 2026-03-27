@@ -1,0 +1,39 @@
+{
+  "author": "TSavo",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "axios": "^1.13.5",
+    "botbuilder": "^4.22.0",
+    "winston": "^3.11.0"
+  },
+  "description": "Microsoft Teams plugin for WOPR using Azure Bot Framework",
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "microsoft-teams",
+    "teams",
+    "azure-bot",
+    "bot-framework"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-msteams",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module"
+}

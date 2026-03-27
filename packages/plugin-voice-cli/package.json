@@ -1,0 +1,58 @@
+{
+  "description": "CLI commands for WOPR voice operations",
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-voice-cli",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "wopr": {
+    "plugin": {
+      "category": "voice",
+      "description": "Voice CLI commands (transcribe, synthesize, list, providers)",
+      "name": "voice-cli",
+      "type": "cli",
+      "tags": [
+        "voice",
+        "cli",
+        "tts",
+        "stt",
+        "transcription"
+      ],
+      "icon": "terminal",
+      "requires": {
+        "capabilities": []
+      },
+      "provides": {
+        "capabilities": [],
+        "commands": [
+          "voice"
+        ]
+      },
+      "lifecycle": {
+        "init": true,
+        "shutdown": false
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

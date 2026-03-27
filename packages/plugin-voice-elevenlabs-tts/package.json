@@ -1,0 +1,46 @@
+{
+  "author": "",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "node-fetch": "^3.3.2"
+  },
+  "description": "ElevenLabs TTS provider for WOPR voice plugin system",
+  "devDependencies": {
+    "@types/node": "^25.3.2"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "tts",
+    "elevenlabs",
+    "voice",
+    "speech-synthesis"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/wopr-plugin-voice-elevenlabs-tts",
+  "peerDependencies": {},
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "wopr": {
+    "plugin": {
+      "category": "voice",
+      "description": "ElevenLabs TTS (hosted API)",
+      "name": "voice-elevenlabs-tts",
+      "type": "tts"
+    }
+  }
+}

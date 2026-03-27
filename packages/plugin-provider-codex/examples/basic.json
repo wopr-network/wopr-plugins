@@ -1,0 +1,6 @@
+{
+  "workingDirectory": "/path/to/workspace",
+  "sandboxMode": "workspace-write",
+  "approvalPolicy": "never",
+  "modelReasoningEffort": "medium"
+}

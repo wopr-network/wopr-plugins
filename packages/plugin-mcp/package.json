@@ -1,0 +1,39 @@
+{
+  "name": "@wopr-network/wopr-plugin-mcp",
+  "version": "0.1.0",
+  "description": "Universal MCP bridge for WOPR - wraps any MCP server as A2A tools",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "mcp",
+    "tools",
+    "a2a"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.0",
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@wopr-network/wopr-plugin-bluebubbles",
+  "version": "1.0.0",
+  "description": "BlueBubbles iMessage/SMS bridge plugin for WOPR",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "socket.io-client": "^4.8.0",
+    "winston": "^3.11.0"
+  },
+  "peerDependencies": {
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "bluebubbles",
+    "imessage",
+    "sms",
+    "bridge"
+  ]
+}

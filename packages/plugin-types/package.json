@@ -1,0 +1,35 @@
+{
+  "description": "Canonical type definitions for WOPR plugins",
+  "devDependencies": {
+    "zod": "^4.3.6"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/wopr-network/wopr-plugin-types#readme",
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@wopr-network/plugin-types",
+  "peerDependencies": {
+    "zod": "^4.3.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wopr-network/wopr-plugin-types.git"
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "version": "0.6.0"
+}

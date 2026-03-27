@@ -1,0 +1,39 @@
+{
+  "name": "@wopr-network/wopr-plugin-twitch",
+  "version": "1.0.0",
+  "description": "Twitch chat integration for WOPR with whispers and channel point redemptions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@twurple/auth": "^8.0.0",
+    "@twurple/chat": "^8.0.0",
+    "@twurple/api": "^8.0.0",
+    "@twurple/eventsub-ws": "^8.0.0",
+    "@wopr-network/plugin-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "twitch",
+    "chat",
+    "bot",
+    "streaming"
+  ]
+}

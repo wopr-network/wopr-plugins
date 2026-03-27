@@ -1,0 +1,31 @@
+{
+  "name": "@wopr-network/wopr-plugin-exec",
+  "version": "0.1.0",
+  "type": "module",
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "hono": "^4.0.0",
+    "shell-quote": "^1.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/shell-quote": "^1.7.5"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
+}

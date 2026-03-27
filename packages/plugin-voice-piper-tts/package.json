@@ -1,0 +1,52 @@
+{
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "dockerode": "^4.0.0"
+  },
+  "description": "Local Piper TTS provider using Piper in Docker",
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "devDependencies": {
+    "@types/dockerode": "^4.0.1",
+    "@types/node": "^25.3.2"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-voice-piper-tts",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "wopr": {
+    "plugin": {
+      "category": "voice",
+      "description": "Local TTS using Piper (Docker)",
+      "install": [
+        {
+          "image": "rhasspy/piper",
+          "kind": "docker",
+          "label": "Pull Piper TTS image",
+          "tag": "latest"
+        }
+      ],
+      "name": "voice-piper-tts",
+      "requires": {
+        "docker": [
+          "rhasspy/piper:latest"
+        ]
+      },
+      "type": "tts"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

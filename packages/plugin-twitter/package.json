@@ -1,0 +1,45 @@
+{
+  "name": "@wopr-network/wopr-plugin-twitter",
+  "version": "0.1.0",
+  "description": "Twitter/X channel plugin for WOPR — post tweets, reply, DM, and stream mentions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "twitter",
+    "x",
+    "bot",
+    "ai"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "twitter-api-v2": "^1.18.2",
+    "winston": "^3.19.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@wopr-network/semantic-release-config": "^1.0.0",
+    "semantic-release": "^24.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

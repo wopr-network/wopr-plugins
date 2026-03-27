@@ -1,0 +1,49 @@
+{
+  "dependencies": {
+    "@moonshot-ai/kimi-agent-sdk": "^0.1.6",
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.19.0"
+  },
+  "description": "Kimi provider with auto-installation (requires Python 3.12+)",
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "provider",
+    "kimi"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-provider-kimi",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "1.6.0",
+  "wopr": {
+    "plugin": {
+      "category": "provider",
+      "description": "Moonshot AI Kimi Code CLI - auto-installs Python 3.12, uv, and kimi-cli",
+      "name": "provider-kimi"
+    },
+    "systemDependencies": {
+      "note": "Will auto-install via uv if missing",
+      "python": ">=3.12"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

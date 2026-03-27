@@ -1,0 +1,43 @@
+{
+  "name": "@wopr-network/wopr-plugin-skills",
+  "version": "1.0.0",
+  "description": "Skills discovery, state management, and REST API for WOPR",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "skills",
+    "ai",
+    "automation"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "hono": "^4.7.12",
+    "winston": "^3.19.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vitest/ui": "^4.0.18"
+  },
+  "overrides": {
+    "undici": "6.23.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

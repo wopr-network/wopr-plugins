@@ -1,0 +1,98 @@
+{
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "ws": "^8.16.0"
+  },
+  "description": "Deepgram STT provider using nova-3 model",
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "@types/ws": "^8.5.10"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-voice-deepgram-stt",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr-plugin"
+  ],
+  "type": "module",
+  "version": "1.0.0",
+  "wopr": {
+    "plugin": {
+      "category": "voice",
+      "description": "Cloud STT using Deepgram's nova-3 model",
+      "icon": "microphone",
+      "install": [],
+      "name": "voice-deepgram-stt",
+      "tags": [
+        "voice",
+        "stt",
+        "deepgram",
+        "cloud",
+        "transcription"
+      ],
+      "requires": {
+        "env": [
+          "DEEPGRAM_API_KEY"
+        ]
+      },
+      "provides": {
+        "capabilities": [
+          {
+            "type": "stt",
+            "name": "deepgram-stt"
+          }
+        ]
+      },
+      "capabilities": [
+        "provider"
+      ],
+      "lifecycle": {
+        "init": true,
+        "shutdown": true,
+        "shutdownBehavior": "graceful"
+      },
+      "configSchema": {
+        "type": "object",
+        "properties": {
+          "apiKey": {
+            "type": "string",
+            "description": "Deepgram API key",
+            "secret": true,
+            "setupFlow": "paste"
+          },
+          "model": {
+            "type": "string",
+            "description": "Deepgram model (default: nova-3)",
+            "default": "nova-3",
+            "enum": [
+              "nova-3",
+              "nova-2",
+              "nova",
+              "enhanced",
+              "base"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "Language code (default: en)",
+            "default": "en"
+          }
+        },
+        "required": []
+      },
+      "type": "stt"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

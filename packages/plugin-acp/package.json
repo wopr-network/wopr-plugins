@@ -1,0 +1,39 @@
+{
+  "name": "@wopr-network/wopr-plugin-acp",
+  "version": "1.0.0",
+  "description": "ACP IDE integration plugin for WOPR — Zed and VS Code via NDJSON stdio",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "plugin",
+    "acp",
+    "ide",
+    "zed",
+    "vscode",
+    "agent-client-protocol"
+  ],
+  "author": "WOPR",
+  "license": "MIT",
+  "dependencies": {
+    "@wopr-network/plugin-types": "workspace:*",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ]
+}

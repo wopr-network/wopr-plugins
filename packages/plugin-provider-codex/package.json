@@ -1,0 +1,48 @@
+{
+  "author": "",
+  "dependencies": {
+    "@openai/codex": "^0.93.0",
+    "@openai/codex-sdk": "^0.58.0",
+    "@wopr-network/plugin-types": "workspace:*",
+    "winston": "^3.11.0"
+  },
+  "peerDependencies": {
+    "zod": ">=3.0.0"
+  },
+  "description": "Codex agent SDK provider for WOPR",
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  },
+  "keywords": [
+    "wopr",
+    "wopr-plugin",
+    "provider",
+    "codex",
+    "agent-sdk"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "name": "@wopr-network/wopr-plugin-provider-codex",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "biome check src/",
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "type": "module",
+  "version": "2.0.0",
+  "wopr": {
+    "plugin": {
+      "category": "provider",
+      "description": "Codex agent SDK",
+      "name": "provider-codex"
+    }
+  }
+}
