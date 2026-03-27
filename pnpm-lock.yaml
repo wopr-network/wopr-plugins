@@ -532,8 +532,8 @@ importers:
   packages/plugin-provider-codex:
     dependencies:
       '@openai/codex':
-        specifier: ^0.93.0
-        version: 0.93.0
+        specifier: ^0.117.0
+        version: 0.117.0
       '@openai/codex-sdk':
         specifier: ^0.58.0
         version: 0.58.0
@@ -2128,10 +2128,46 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@openai/codex@0.93.0':
-    resolution: {integrity: sha512-3skVlzRN3bApbyCX3zeEK6umGb4OfaTa/lsuJ9syng+NxUGptDMFsrOoC+rMU1uYeFtt+OjYttjpfHY2xE1DAQ==}
+  '@openai/codex@0.117.0':
+    resolution: {integrity: sha512-UmWo39UCGqFB2ImWwtI/TOnVQ1M2JIbCeDVBzOtG57WuTIPBNvDyluPNrzNv6eAcTYpyDLC5+nT5k49LrzEwow==}
     engines: {node: '>=16'}
     hasBin: true
+
+  '@openai/codex@0.117.0-darwin-arm64':
+    resolution: {integrity: sha512-atIlp7v15chsfMpypW8/4PBp6kOca8wBZoC0hdAWGl/PKZ76/cTC+LKi2XhRfMqKY25nUxnXnm1DnLHqWGKRXA==}
+    engines: {node: '>=16'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@openai/codex@0.117.0-darwin-x64':
+    resolution: {integrity: sha512-/TWwOtzo44flOQptQTyu+zozESNpsm/jLlK+6vEjOVikXF+kxeA7sgJHRQQ78dFvnHTW+EpkUYew5qNawREtgw==}
+    engines: {node: '>=16'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@openai/codex@0.117.0-linux-arm64':
+    resolution: {integrity: sha512-rgQIYipgkMRGvDlK3qbI9v/3NxB1tO3OoNYkWW9onOcev8Jno+hZC0ZEcVamxC5XGspVuPv2Wg+e9hw6jA65FA==}
+    engines: {node: '>=16'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@openai/codex@0.117.0-linux-x64':
+    resolution: {integrity: sha512-kvOZtyLAgFEFSFRJXVzTnFYoZgZya9ttpxDYHR+diBgDBlcBp1B6pRiIGUmCOauxpHtTFUEyisvhKQquZbAtfg==}
+    engines: {node: '>=16'}
+    cpu: [x64]
+    os: [linux]
+
+  '@openai/codex@0.117.0-win32-arm64':
+    resolution: {integrity: sha512-oglr9IEh0P3cXF1LyGE4ROR6OFOJ7zmOZppoS+FJR6ovaPb08RhfXCDq/1yyzZhCYIaL6GHIdJ56ZEfpM4FuCQ==}
+    engines: {node: '>=16'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@openai/codex@0.117.0-win32-x64':
+    resolution: {integrity: sha512-ByedNwSlHJ4aE2++fBaUcaqbQsmx2dZS6mhrnv2SqbTY0saRFE2BT1R64fClt8TwXwMsQQn1uvkxjzU4aEhRcg==}
+    engines: {node: '>=16'}
+    cpu: [x64]
+    os: [win32]
 
   '@opencode-ai/sdk@1.3.3':
     resolution: {integrity: sha512-qg7DwEVUpZArsYajs0DcaHqmIYB3EfHCuuTdMJir7Yc976DUWDfLR/5y9h8fKb9HAMJXe4TZkAIEr0/3OmK67g==}
@@ -3064,15 +3100,15 @@ packages:
       sharp:
         optional: true
 
-  '@whiskeysockets/eslint-config@git+https://https://github.com/whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838':
-    resolution: {commit: 299e8389baf62f9aa3034de18ff0d62cc0a5e838, repo: https://github.com/whiskeysockets/eslint-config.git, type: git}
+  '@whiskeysockets/eslint-config@git+https://git@github.com:whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838':
+    resolution: {commit: 299e8389baf62f9aa3034de18ff0d62cc0a5e838, repo: git@github.com:whiskeysockets/eslint-config.git, type: git}
     version: 1.0.0
     peerDependencies:
       eslint: ^9.31.0
       typescript: '>=4'
 
-  '@whiskeysockets/libsignal-node@git+https://https://github.com/WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
-    resolution: {commit: 1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67, repo: https://github.com/WhiskeySockets/libsignal-node.git, type: git}
+  '@whiskeysockets/libsignal-node@git+https://git@github.com:WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
+    resolution: {commit: 1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67, repo: git@github.com:WhiskeySockets/libsignal-node.git, type: git}
     version: 2.0.1
 
   '@wopr-network/semantic-release-config@1.0.0':
@@ -8403,7 +8439,32 @@ snapshots:
   '@openai/codex@0.116.0-win32-x64':
     optional: true
 
-  '@openai/codex@0.93.0': {}
+  '@openai/codex@0.117.0':
+    optionalDependencies:
+      '@openai/codex-darwin-arm64': '@openai/codex@0.117.0-darwin-arm64'
+      '@openai/codex-darwin-x64': '@openai/codex@0.117.0-darwin-x64'
+      '@openai/codex-linux-arm64': '@openai/codex@0.117.0-linux-arm64'
+      '@openai/codex-linux-x64': '@openai/codex@0.117.0-linux-x64'
+      '@openai/codex-win32-arm64': '@openai/codex@0.117.0-win32-arm64'
+      '@openai/codex-win32-x64': '@openai/codex@0.117.0-win32-x64'
+
+  '@openai/codex@0.117.0-darwin-arm64':
+    optional: true
+
+  '@openai/codex@0.117.0-darwin-x64':
+    optional: true
+
+  '@openai/codex@0.117.0-linux-arm64':
+    optional: true
+
+  '@openai/codex@0.117.0-linux-x64':
+    optional: true
+
+  '@openai/codex@0.117.0-win32-arm64':
+    optional: true
+
+  '@openai/codex@0.117.0-win32-x64':
+    optional: true
 
   '@opencode-ai/sdk@1.3.3':
     optional: true
@@ -9383,13 +9444,13 @@ snapshots:
       '@adiwajshing/keyed-db': 0.2.4
       '@cacheable/node-cache': 1.7.6
       '@hapi/boom': 9.1.4
-      '@whiskeysockets/eslint-config': git+https://https://github.com/whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
+      '@whiskeysockets/eslint-config': git+https://git@github.com:whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       async-lock: 1.4.1
       audio-decode: 2.2.3
       axios: 1.13.6
       cache-manager: 5.7.6
       libphonenumber-js: 1.12.40
-      libsignal: '@whiskeysockets/libsignal-node@git+https://https://github.com/WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67'
+      libsignal: '@whiskeysockets/libsignal-node@git+https://git@github.com:WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67'
       lodash: 4.17.23
       music-metadata: 7.14.0
       pino: 9.14.0
@@ -9406,7 +9467,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@whiskeysockets/eslint-config@git+https://https://github.com/whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)':
+  '@whiskeysockets/eslint-config@git+https://git@github.com:whiskeysockets/eslint-config.git#299e8389baf62f9aa3034de18ff0d62cc0a5e838(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.57.2(@typescript-eslint/parser@8.57.2(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
       '@typescript-eslint/parser': 8.57.2(eslint@9.39.4(jiti@2.6.1))(typescript@5.9.3)
@@ -9416,7 +9477,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@whiskeysockets/libsignal-node@git+https://https://github.com/WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
+  '@whiskeysockets/libsignal-node@git+https://git@github.com:WhiskeySockets/libsignal-node.git#1c30d7d7e76a3b0aa120b04dc6a26f5a12dccf67':
     dependencies:
       curve25519-js: 0.0.4
       protobufjs: 6.8.8
