@@ -37,9 +37,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Update plugin registry
-        run: |
-          pnpm run generate-registry
-          git add plugin-registry.json
-          git diff --cached --quiet || (git commit -m "chore: update plugin registry" && git push)
