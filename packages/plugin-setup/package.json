@@ -24,5 +24,11 @@
   "files": [
     "dist"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wopr-network/wopr-plugins.git",
+    "directory": "packages/plugin-setup"
+  },
+  "homepage": "https://github.com/wopr-network/wopr-plugins/tree/main/packages/plugin-setup#readme"
 }

@@ -34,5 +34,11 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wopr-network/wopr-plugins.git",
+    "directory": "packages/plugin-slack"
+  },
+  "homepage": "https://github.com/wopr-network/wopr-plugins/tree/main/packages/plugin-slack#readme"
 }
