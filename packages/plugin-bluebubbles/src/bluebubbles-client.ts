@@ -195,7 +195,7 @@ export class BlueBubblesClient {
     formData.append("chatGuid", chatGuid);
     formData.append("tempGuid", crypto.randomUUID());
     formData.append("name", filename);
-    formData.append("attachment", new Blob([fileBuffer]), filename);
+    formData.append("attachment", new Blob([new Uint8Array(fileBuffer)]), filename);
 
     const res = await fetch(url, { method: "POST", body: formData });
     return (await res.json()) as BBApiResponse<BBMessage>;

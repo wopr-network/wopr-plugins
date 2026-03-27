@@ -97,6 +97,8 @@ export interface ManifestProviderEntry {
 	displayName: string;
 	/** Config schema for this provider's settings (API key fields, model selection, etc.) */
 	configSchema?: ConfigSchema;
+	/** Optional tier label (e.g., "wopr", "byok") */
+	tier?: string;
 	/**
 	 * Optional health probe configuration.
 	 * If "endpoint", the platform makes an HTTP GET to the plugin's healthEndpoint.

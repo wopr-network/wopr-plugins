@@ -5,7 +5,7 @@ import {
 	type ConfigSchemaField,
 	type InstalledPlugin,
 	type PluginCategory,
-} from "../lib/api";
+} from "../lib/api.js";
 
 type Tab = "installed" | "available";
 

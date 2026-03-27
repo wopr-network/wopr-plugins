@@ -233,10 +233,10 @@ const plugin: WOPRPlugin = {
     }
 
     // Check for TTS/STT availability
-    const voice = ctx.hasVoice();
-    if (!voice.tts || !voice.stt) {
+    const voice = ctx.hasVoice?.();
+    if (!voice?.tts || !voice?.stt) {
       logger.warn(
-        `Voice capabilities incomplete — voice-call requires both TTS and STT providers (hasTTS=${voice.tts}, hasSTT=${voice.stt})`,
+        `Voice capabilities incomplete — voice-call requires both TTS and STT providers (hasTTS=${voice?.tts}, hasSTT=${voice?.stt})`,
       );
     }
 

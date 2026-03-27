@@ -81,7 +81,7 @@ const plugin: WOPRPlugin = {
     provider.validateConfig();
 
     // Register STT provider
-    ctx.registerSTTProvider(provider);
+    ctx.registerSTTProvider?.(provider);
     cleanups.push(() => provider.shutdown());
 
     ctx.log.info("Whisper Local STT provider registered");

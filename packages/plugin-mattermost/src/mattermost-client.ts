@@ -109,7 +109,7 @@ export class MattermostClient {
 		const url = `${this.baseUrl}/api/v4/files`;
 		const formData = new FormData();
 		formData.append("channel_id", channelId);
-		formData.append("files", new Blob([data]), filename);
+		formData.append("files", new Blob([new Uint8Array(data)]), filename);
 		const res = await fetch(url, {
 			method: "POST",
 			headers: { Authorization: `Bearer ${this.token}` },

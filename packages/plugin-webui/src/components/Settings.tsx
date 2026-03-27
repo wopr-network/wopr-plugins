@@ -1,5 +1,5 @@
 import { type Component, createSignal, For, onMount } from "solid-js";
-import { api, type WoprConfig } from "../lib/api";
+import { api, type WoprConfig } from "../lib/api.js";
 
 const Settings: Component = () => {
 	const [config, setConfig] = createSignal<WoprConfig | null>(null);

@@ -7,7 +7,7 @@
  * Uses the W3C WebMCP spec: inputSchema (JSON Schema), execute(input, client).
  */
 
-import type { AuthContext, WebMCPRegistry } from "./webmcp";
+import type { AuthContext, WebMCPRegistry } from "./webmcp.js";
 
 // -- Internal helpers --
 

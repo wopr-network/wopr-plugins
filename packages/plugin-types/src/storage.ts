@@ -64,6 +64,7 @@ export type OrderDirection = "asc" | "desc";
  * Query builder interface - chainable, type-safe
  */
 export interface QueryBuilder<T> {
+	where(filter: Filter<T>): QueryBuilder<T>;
 	where<K extends keyof T>(
 		field: K,
 		op: FilterOperator,
@@ -184,8 +185,9 @@ export interface TableIndex {
  * Core generates Drizzle tables from this.
  */
 export interface TableSchema {
-	/** Zod schema for validation and types */
-	schema: z.ZodObject<Record<string, z.ZodTypeAny>>;
+	/** Zod schema for validation and types (accepts both Zod v3 and v4 objects) */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	schema: { parse: (data: unknown) => any; shape: Record<string, unknown> };
 	/** Primary key field name */
 	primaryKey: string;
 	/** Indexes to create */
