@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-irc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IRC channel plugin for WOPR - Enables AI conversations in IRC channels",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

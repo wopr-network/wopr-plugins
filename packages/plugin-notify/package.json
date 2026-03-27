@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-notify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Notification plugin for WOPR — sends notifications to configured channels",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

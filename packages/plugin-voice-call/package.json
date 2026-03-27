@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-voice-call",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Voice call orchestration plugin for WOPR — coordinates TTS + STT for full voice conversations",
   "author": "TSavo",
   "license": "MIT",

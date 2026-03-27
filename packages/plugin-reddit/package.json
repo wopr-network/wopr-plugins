@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-reddit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reddit channel plugin for WOPR - Enables AI conversations on Reddit",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

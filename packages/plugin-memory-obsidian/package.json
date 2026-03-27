@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-memory-obsidian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto-store and recall conversation memories in your Obsidian vault",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

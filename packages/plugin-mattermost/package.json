@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-mattermost",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mattermost channel plugin for WOPR",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

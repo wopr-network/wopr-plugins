@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-websearch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Web search plugin for WOPR — Brave, Google, and xAI with fallback chain and SSRF protection",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

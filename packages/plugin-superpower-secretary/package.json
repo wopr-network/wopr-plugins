@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-superpower-secretary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fire Your Secretary -- a proactive chief of staff that manages your schedule, drafts emails, and never calls in sick",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

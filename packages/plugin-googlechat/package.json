@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-googlechat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Chat integration for WOPR - Google Workspace messaging",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

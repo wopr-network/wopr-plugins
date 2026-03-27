@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-videogen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Video generation capability plugin for WOPR — /video in any channel",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

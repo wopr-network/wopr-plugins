@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-tools",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Meta package providing http and exec capabilities - depends on wopr-plugin-http and wopr-plugin-exec",
   "type": "module",
   "exports": {

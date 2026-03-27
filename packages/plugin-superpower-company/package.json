@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-superpower-company",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Run a Company from Discord -- dedicated employee bots per channel that wake on schedule and coordinate with each other",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

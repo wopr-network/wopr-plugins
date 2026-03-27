@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-bluebubbles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BlueBubbles iMessage/SMS bridge plugin for WOPR",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-setup",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Conversational setup plugin for WOPR — configures plugins via chat",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

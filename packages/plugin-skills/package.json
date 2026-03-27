@@ -1,6 +1,6 @@
 {
   "name": "@wopr-network/wopr-plugin-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Skills discovery, state management, and REST API for WOPR",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
