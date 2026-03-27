@@ -1,11 +1,11 @@
 {
   "version": "1.0.0",
-  "generated": "2026-03-27T05:16:19.826Z",
+  "generated": "2026-03-27T06:58:43.493Z",
   "count": 63,
   "plugins": [
     {
       "name": "@wopr-network/wopr-plugin-acp",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "ACP IDE integration plugin for WOPR — Zed and VS Code via NDJSON stdio",
       "category": "plugin",
       "tags": [
@@ -26,7 +26,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-bluebubbles",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "BlueBubbles iMessage/SMS bridge plugin for WOPR",
       "category": "channel",
       "tags": [
@@ -45,7 +45,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-browser",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Browser automation plugin for WOPR — Playwright-based web interaction",
       "category": "utility",
       "tags": [
@@ -64,7 +64,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-canvas",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Canvas visual workspace plugin for WOPR",
       "category": "media",
       "tags": [
@@ -83,7 +83,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-channel-discord-voice",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Discord voice channel integration for WOPR - Enables voice conversations in Discord",
       "category": "channel",
       "tags": [
@@ -105,7 +105,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-cron",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Cron scheduling plugin for WOPR - Recurring and one-time message injection with script execution",
       "category": "utility",
       "tags": [
@@ -124,7 +124,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-discord",
-      "version": "2.12.0",
+      "version": "2.12.1",
       "description": "Discord bot integration for WOPR - Enables AI conversations in Discord channels",
       "category": "channel",
       "tags": [
@@ -143,7 +143,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-evangelist",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Market Your Product superpower — turns any WOPR bot into a marketing machine",
       "category": "plugin",
       "tags": [
@@ -163,7 +163,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-exec",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "",
       "category": "utility",
       "tags": [
@@ -177,7 +177,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-feishu",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Feishu/Lark channel plugin for WOPR",
       "category": "channel",
       "tags": [
@@ -197,7 +197,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-googlechat",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Google Chat integration for WOPR - Google Workspace messaging",
       "category": "channel",
       "tags": [
@@ -216,7 +216,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-http",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "",
       "category": "utility",
       "tags": [
@@ -230,7 +230,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-imagegen",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Image generation plugin for WOPR — DALL-E, Replicate, and more",
       "category": "media",
       "tags": [
@@ -251,7 +251,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-imessage",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "iMessage/SMS integration for WOPR via imsg CLI (macOS only)",
       "category": "channel",
       "tags": [
@@ -270,7 +270,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-irc",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "IRC channel plugin for WOPR - Enables AI conversations in IRC channels",
       "category": "channel",
       "tags": [
@@ -289,7 +289,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-line",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "LINE channel plugin for WOPR using LINE Bot SDK",
       "category": "channel",
       "tags": [
@@ -307,7 +307,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-matrix",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Matrix channel plugin for WOPR - Enables AI conversations in Matrix rooms with E2EE support",
       "category": "channel",
       "tags": [
@@ -327,7 +327,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-mattermost",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Mattermost channel plugin for WOPR",
       "category": "plugin",
       "tags": [
@@ -347,7 +347,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Universal MCP bridge for WOPR - wraps any MCP server as A2A tools",
       "category": "integration",
       "tags": [
@@ -366,7 +366,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-memory-obsidian",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Auto-store and recall conversation memories in your Obsidian vault",
       "category": "memory",
       "tags": [
@@ -385,7 +385,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-memory-semantic",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Semantic memory search with embeddings, auto-recall, and auto-capture for WOPR",
       "category": "memory",
       "tags": [
@@ -404,7 +404,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-metrics",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Metrics and observability plugin for WOPR — records, queries, and exports platform metrics",
       "category": "plugin",
       "tags": [
@@ -422,7 +422,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-msteams",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Microsoft Teams plugin for WOPR using Azure Bot Framework",
       "category": "channel",
       "tags": [
@@ -441,7 +441,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-nostr",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Nostr protocol integration for WOPR — encrypted DMs and public replies",
       "category": "channel",
       "tags": [
@@ -460,7 +460,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-notify",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Notification plugin for WOPR — sends notifications to configured channels",
       "category": "plugin",
       "tags": [
@@ -478,7 +478,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-obsidian",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Obsidian vault integration for WOPR — search, read, write notes and inject vault context into conversations",
       "category": "plugin",
       "tags": [
@@ -499,7 +499,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-p2p",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "P2P networking plugin for WOPR with Hyperswarm, identity management, and A2A tools",
       "category": "network",
       "tags": [
@@ -518,7 +518,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-provider-anthropic",
-      "version": "2.4.0",
+      "version": "2.4.1",
       "description": "Anthropic Claude provider plugin for WOPR",
       "category": "provider",
       "tags": [
@@ -536,7 +536,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-provider-codex",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "Codex agent SDK provider for WOPR",
       "category": "provider",
       "tags": [
@@ -554,7 +554,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-provider-kimi",
-      "version": "1.6.0",
+      "version": "1.6.1",
       "description": "Kimi provider with auto-installation (requires Python 3.12+)",
       "category": "provider",
       "tags": [
@@ -571,7 +571,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-provider-openai",
-      "version": "2.2.0",
+      "version": "2.2.1",
       "description": "OpenAI provider plugin for WOPR",
       "category": "provider",
       "tags": [
@@ -590,7 +590,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-provider-opencode",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "OpenCode AI provider plugin for WOPR",
       "category": "provider",
       "tags": [
@@ -608,7 +608,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-reddit",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Reddit channel plugin for WOPR - Enables AI conversations on Reddit",
       "category": "channel",
       "tags": [
@@ -641,7 +641,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-sandbox",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Docker-based session isolation for WOPR — container lifecycle, per-session context, tool policy engine",
       "category": "plugin",
       "tags": [
@@ -660,7 +660,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-setup",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Conversational setup plugin for WOPR — configures plugins via chat",
       "category": "system",
       "tags": [],
@@ -672,7 +672,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-signal",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Signal plugin for WOPR using signal-cli",
       "category": "channel",
       "tags": [
@@ -690,7 +690,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-skills",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Skills discovery, state management, and REST API for WOPR",
       "category": "plugin",
       "tags": [
@@ -709,7 +709,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-slack",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Slack integration for WOPR - Socket Mode and HTTP webhook support",
       "category": "channel",
       "tags": [
@@ -728,7 +728,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-soul",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Soul/personality plugin for WOPR — persistent agent identity via SOUL.md",
       "category": "plugin",
       "tags": [
@@ -748,7 +748,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-superpower-company",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Run a Company from Discord -- dedicated employee bots per channel that wake on schedule and coordinate with each other",
       "category": "plugin",
       "tags": [
@@ -768,7 +768,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-superpower-secretary",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Fire Your Secretary -- a proactive chief of staff that manages your schedule, drafts emails, and never calls in sick",
       "category": "plugin",
       "tags": [
@@ -788,7 +788,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-superpower-startup",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Launch Your Startup -- a $5 co-founder who thinks about product, market, and execution. Never asks for equity.",
       "category": "plugin",
       "tags": [
@@ -808,7 +808,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-tailscale-funnel",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Expose WOPR services externally via Tailscale Funnel",
       "category": "plugin",
       "tags": [
@@ -827,7 +827,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-telegram",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Telegram plugin for WOPR using Grammy",
       "category": "channel",
       "tags": [
@@ -845,7 +845,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-tools",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "description": "Meta package providing http and exec capabilities - depends on wopr-plugin-http and wopr-plugin-exec",
       "category": "utility",
       "tags": [
@@ -866,7 +866,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-twitch",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Twitch chat integration for WOPR with whispers and channel point redemptions",
       "category": "channel",
       "tags": [
@@ -886,7 +886,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-twitter",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Twitter/X channel plugin for WOPR — post tweets, reply, DM, and stream mentions",
       "category": "channel",
       "tags": [
@@ -906,7 +906,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-videogen",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Video generation capability plugin for WOPR — /video in any channel",
       "category": "media",
       "tags": [
@@ -925,7 +925,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-call",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Voice call orchestration plugin for WOPR — coordinates TTS + STT for full voice conversations",
       "category": "voice",
       "tags": [
@@ -945,7 +945,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-chatterbox",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "WOPR TTS plugin for Chatterbox (OpenAI-compatible)",
       "category": "voice",
       "tags": [
@@ -969,7 +969,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-cli",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "CLI commands for WOPR voice operations",
       "category": "voice",
       "tags": [
@@ -995,7 +995,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-deepgram-stt",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Deepgram STT provider using nova-3 model",
       "category": "voice",
       "tags": [
@@ -1027,7 +1027,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-elevenlabs-tts",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "ElevenLabs TTS provider for WOPR voice plugin system",
       "category": "voice",
       "tags": [
@@ -1046,7 +1046,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-openai-tts",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "OpenAI TTS provider for WOPR voice",
       "category": "voice",
       "tags": [
@@ -1064,7 +1064,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-piper-tts",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Local Piper TTS provider using Piper in Docker",
       "category": "voice",
       "tags": [
@@ -1082,7 +1082,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-qwen3-tts",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "WOPR TTS plugin for Qwen3-TTS (OpenAI-compatible)",
       "category": "voice",
       "tags": [
@@ -1113,7 +1113,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-vibevoice",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "WOPR TTS plugin for VibeVoice (OpenAI-compatible)",
       "category": "voice",
       "tags": [
@@ -1139,7 +1139,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-voice-whisper-local",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Local Whisper STT provider using faster-whisper in Docker",
       "category": "voice",
       "tags": [
@@ -1157,7 +1157,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-webhooks",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "HTTP webhook ingress for WOPR - trigger agent runs from external systems",
       "category": "utility",
       "tags": [
@@ -1175,7 +1175,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-websearch",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Web search plugin for WOPR — Brave, Google, and xAI with fallback chain and SSRF protection",
       "category": "plugin",
       "tags": [
@@ -1195,7 +1195,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-webui",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": "Web UI plugin for WOPR - SolidJS-based dashboard for sessions, plugins, and configuration",
       "category": "system",
       "tags": [
@@ -1213,7 +1213,7 @@
     },
     {
       "name": "@wopr-network/wopr-plugin-whatsapp",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "WhatsApp plugin for WOPR using Baileys (WhatsApp Web)",
       "category": "channel",
       "tags": [
