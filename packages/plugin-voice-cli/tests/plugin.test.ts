@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import plugin from "../index.js";
+import plugin from "../src/index.js";
 
 function makeCtx(overrides: Record<string, unknown> = {}) {
 	return {
@@ -37,7 +37,7 @@ describe("voice-cli plugin lifecycle", () => {
 describe("code quality", () => {
 	it("has no catch (error: any) blocks", () => {
 		const source = readFileSync(
-			new URL("../index.ts", import.meta.url),
+			new URL("../src/index.ts", import.meta.url),
 			"utf8",
 		);
 		expect(source).not.toContain("catch (err: any)");

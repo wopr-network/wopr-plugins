@@ -75,6 +75,8 @@ export function createMockContext(
     ),
     unregisterConfigSchema: vi.fn(),
     getConfigSchema: vi.fn(),
+    registerProvider: vi.fn(),
+    unregisterProvider: vi.fn(),
     registerExtension: vi.fn(),
     unregisterExtension: vi.fn(),
     getExtension: vi.fn(),

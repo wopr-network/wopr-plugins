@@ -13,6 +13,7 @@ vi.mock("./channel-provider.js", () => ({
   setBotUsername: vi.fn(),
   setDefaultSubject: vi.fn(),
   setRedditClient: vi.fn(),
+  clearRegistrations: vi.fn(),
 }));
 
 vi.mock("./logger.js", () => ({

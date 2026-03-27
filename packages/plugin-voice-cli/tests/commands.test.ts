@@ -1,6 +1,6 @@
 import { unlinkSync, writeFileSync } from "node:fs";
 import { describe, expect, it, vi } from "vitest";
-import plugin from "../index.js";
+import plugin from "../src/index.js";
 
 function makeCtx(overrides: Record<string, unknown> = {}) {
 	return {

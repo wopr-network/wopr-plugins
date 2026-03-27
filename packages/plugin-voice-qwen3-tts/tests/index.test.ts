@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseWavSampleRate, Qwen3Provider, wavToPcm } from "./index.js";
+import { parseWavSampleRate, Qwen3Provider, wavToPcm } from "../src/index.js";
 
 describe("WAV parsing utilities", () => {
 	it("parseWavSampleRate returns default for short buffer", () => {
@@ -82,7 +82,7 @@ describe("Qwen3-TTS Integration", () => {
 		expect(typeof healthy).toBe("boolean");
 	}, 3000);
 
-	it("should synthesize speech (may fail if no server)", async () => {
+	it.skip("should synthesize speech (requires running server)", async () => {
 		try {
 			const result = await provider.synthesize("Hello world");
 			expect(result.audio.length).toBeGreaterThan(0);
@@ -91,7 +91,7 @@ describe("Qwen3-TTS Integration", () => {
 		}
 	}, 5000);
 
-	it("should handle custom voice option", async () => {
+	it.skip("should handle custom voice option (requires running server)", async () => {
 		try {
 			const result = await provider.synthesize("Testing voice", {
 				voice: "am_michael",
@@ -102,7 +102,7 @@ describe("Qwen3-TTS Integration", () => {
 		}
 	}, 5000);
 
-	it("should handle empty text", async () => {
+	it.skip("should handle empty text (requires running server)", async () => {
 		try {
 			await provider.synthesize("");
 		} catch {

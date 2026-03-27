@@ -33,16 +33,18 @@ vi.mock("@line/bot-sdk", () => {
     }
   }
 
+  class MockMessagingApiClient {
+    replyMessage = mockReplyMessage;
+    pushMessage = mockPushMessage;
+  }
+
   return {
     HTTPFetchError,
     SignatureValidationFailed,
     JSONParseError,
     middleware: vi.fn().mockReturnValue((_req: unknown, _res: unknown, next: () => void) => next()),
     messagingApi: {
-      MessagingApiClient: vi.fn().mockImplementation(() => ({
-        replyMessage: mockReplyMessage,
-        pushMessage: mockPushMessage,
-      })),
+      MessagingApiClient: MockMessagingApiClient,
     },
     webhook: {},
   };
