@@ -191,7 +191,7 @@ class VibeVoiceProvider implements TTSProvider {
 					method: "GET",
 					signal: AbortSignal.timeout(5000),
 				});
-				return response.ok || response.status === 404;
+				return response.status !== 404;
 			} catch {
 				return false;
 			}
@@ -289,14 +289,14 @@ describe("VibeVoice TTS Plugin", () => {
 	});
 
 	it("should return false from healthCheck when server unreachable", async () => {
-		const p = new VibeVoiceProvider({ serverUrl: "http://127.0.0.1:19999" });
+		const p = new VibeVoiceProvider({ serverUrl: "http://127.0.0.1:1" });
 		const healthy = await p.healthCheck();
 		expect(healthy).toBe(false);
 	});
 
 	it("should throw on synthesis error from server", async () => {
 		// Server doesn't exist, so fetch will throw (connection refused)
-		const p = new VibeVoiceProvider({ serverUrl: "http://127.0.0.1:19999" });
+		const p = new VibeVoiceProvider({ serverUrl: "http://127.0.0.1:1" });
 		await expect(p.synthesize("Hello world")).rejects.toThrow();
 	});
 

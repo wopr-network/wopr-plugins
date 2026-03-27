@@ -33,7 +33,7 @@
   "scripts": {
     "lint": "biome check src/",
     "build": "tsc",
-    "test": "echo 'tests skipped: codex-sdk ESM resolution issue on Node 22'",
+    "test": "vitest run --passWithNoTests",
     "prepublishOnly": "npm run build"
   },
   "type": "module",

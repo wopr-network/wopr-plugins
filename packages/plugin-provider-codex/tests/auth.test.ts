@@ -32,7 +32,7 @@ describe("auth detection", () => {
 	});
 
 	it("returns false for empty credential with no auth sources", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin);
 		const valid = await provider.validateCredentials("");
@@ -40,7 +40,7 @@ describe("auth detection", () => {
 	});
 
 	it("returns false for non-sk- prefixed API key", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin);
 		const valid = await provider.validateCredentials("not-a-valid-key");
@@ -49,7 +49,7 @@ describe("auth detection", () => {
 
 	it("returns true when OPENAI_API_KEY env var is set (empty credential)", async () => {
 		process.env.OPENAI_API_KEY = "sk-test-key-12345";
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin);
 		const valid = await provider.validateCredentials("");
@@ -74,7 +74,7 @@ describe("auth detection", () => {
 			}),
 		);
 
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin);
 		const valid = await provider.validateCredentials("");
@@ -82,7 +82,7 @@ describe("auth detection", () => {
 	});
 
 	it("getAuthMethods returns 3 methods", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin) as any;
 		const methods = provider.getAuthMethods();
@@ -91,7 +91,7 @@ describe("auth detection", () => {
 	});
 
 	it("getActiveAuthMethod returns 'none' when no auth configured", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin) as any;
 		expect(provider.getActiveAuthMethod()).toBe("none");
@@ -99,14 +99,14 @@ describe("auth detection", () => {
 
 	it("getActiveAuthMethod returns 'api-key' when OPENAI_API_KEY is set", async () => {
 		process.env.OPENAI_API_KEY = "sk-env-key-12345";
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin) as any;
 		expect(provider.getActiveAuthMethod()).toBe("api-key");
 	});
 
 	it("getCredentialType returns 'api-key' when no oauth", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 		const provider = captureProvider(plugin) as any;
 		expect(provider.getCredentialType()).toBe("api-key");

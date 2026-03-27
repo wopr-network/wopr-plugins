@@ -26,6 +26,7 @@ vi.mock("../channel-provider.js", () => ({
   setRedditClient: vi.fn(),
   setBotUsername: vi.fn(),
   setDefaultSubject: vi.fn(),
+  clearRegistrations: vi.fn(),
 }));
 
 // Mock RedditClient

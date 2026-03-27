@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "biome check src/",
     "build": "tsc",
-    "test": "echo \"tests need migration fix\" && exit 0",
+    "test": "vitest run --passWithNoTests",
     "prepublishOnly": "npm run build"
   },
   "type": "module",

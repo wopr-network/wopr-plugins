@@ -1,6 +1,6 @@
 import type { ConfigField } from "@wopr-network/plugin-types";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import plugin from "./index.js";
+import plugin from "../src/index.js";
 
 function mockCtx(config: Record<string, unknown> = {}) {
 	return {

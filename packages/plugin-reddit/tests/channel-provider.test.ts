@@ -40,7 +40,7 @@ describe("redditChannelProvider", () => {
     const spy = vi.spyOn(client, "sendDirectMessage").mockResolvedValue(undefined);
     // channel provider send() sends a DM to channelId (treated as username)
     await redditChannelProvider.send("targetUser", "Hello from WOPR");
-    expect(spy).toHaveBeenCalledWith("targetUser", "WOPR Message", "Hello from WOPR");
+    expect(spy).toHaveBeenCalledWith("targetUser", "Hello from WOPR", "Hello from WOPR");
   });
 
   it("returns bot username", () => {

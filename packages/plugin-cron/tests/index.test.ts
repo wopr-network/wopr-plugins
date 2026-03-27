@@ -6,7 +6,7 @@ vi.mock("../src/cron-repository.js", () => ({
 }));
 
 vi.mock("../src/cron-tick.js", () => ({
-  createCronTickLoop: vi.fn(() => vi.fn()),
+  createCronTickLoop: vi.fn(() => vi.fn().mockResolvedValue(undefined)),
 }));
 
 vi.mock("../src/cron-a2a-tools.js", () => ({
@@ -102,7 +102,7 @@ describe("wopr-plugin-cron", () => {
     });
 
     it("runs tick loop immediately on startup", async () => {
-      const mockTick = vi.fn();
+      const mockTick = vi.fn().mockResolvedValue(undefined);
       vi.mocked(createCronTickLoop).mockReturnValue(mockTick);
       await plugin.init(mockCtx);
       expect(mockTick).toHaveBeenCalledTimes(1);
@@ -146,7 +146,7 @@ describe("wopr-plugin-cron", () => {
 
   describe("shutdown()", () => {
     it("clears the tick interval after init", async () => {
-      const mockTick = vi.fn();
+      const mockTick = vi.fn().mockResolvedValue(undefined);
       vi.mocked(createCronTickLoop).mockReturnValue(mockTick);
       await plugin.init(mockCtx);
 

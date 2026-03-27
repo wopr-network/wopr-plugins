@@ -19,7 +19,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("returns on first success without retrying", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const fn = vi.fn().mockResolvedValue("ok");
 		const result = await retryWithBackoff(fn, {}, { warn: vi.fn() });
 		expect(result).toBe("ok");
@@ -27,7 +27,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("retries on 429 and succeeds", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const error429 = Object.assign(new Error("rate limited"), { status: 429 });
 		const fn = vi.fn().mockRejectedValueOnce(error429).mockResolvedValue("ok");
 		const result = await retryWithBackoff(
@@ -40,7 +40,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("retries on 503 and succeeds", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const error503 = Object.assign(new Error("unavailable"), { status: 503 });
 		const fn = vi.fn().mockRejectedValueOnce(error503).mockResolvedValue("ok");
 		const result = await retryWithBackoff(
@@ -53,7 +53,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("retries on network errors (ECONNRESET)", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const fn = vi
 			.fn()
 			.mockRejectedValueOnce(new Error("ECONNRESET"))
@@ -68,7 +68,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("retries on 'network error' message (case-insensitive)", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const fn = vi
 			.fn()
 			.mockRejectedValueOnce(new Error("Network Error"))
@@ -83,7 +83,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("does NOT retry on generic 'network' messages (e.g. 'neural network error')", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const fn = vi
 			.fn()
 			.mockRejectedValue(new Error("neural network computation failed"));
@@ -94,7 +94,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("does NOT retry on non-retryable errors (e.g. 401)", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const error401 = Object.assign(new Error("unauthorized"), { status: 401 });
 		const fn = vi.fn().mockRejectedValue(error401);
 		await expect(
@@ -104,7 +104,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("exhausts retries and throws", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const error429 = Object.assign(new Error("rate limited"), { status: 429 });
 		const fn = vi.fn().mockRejectedValue(error429);
 		await expect(
@@ -118,7 +118,7 @@ describe("retryWithBackoff", () => {
 	});
 
 	it("uses exponential backoff delays", async () => {
-		const { retryWithBackoff } = await import("../index.js");
+		const { retryWithBackoff } = await import("../src/index.js");
 		const error429 = Object.assign(new Error("rate limited"), { status: 429 });
 		const warnFn = vi.fn();
 		const fn = vi
