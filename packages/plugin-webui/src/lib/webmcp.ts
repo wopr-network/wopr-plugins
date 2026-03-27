@@ -13,7 +13,7 @@ export type InputSchema = Record<string, unknown>;
 
 /** Hints about a tool's behavior */
 export interface ToolAnnotations {
-	readOnlyHint?: boolean;
+  readOnlyHint?: boolean;
 }
 
 /**
@@ -21,7 +21,7 @@ export interface ToolAnnotations {
  * Provides requestUserInteraction() for consent flows.
  */
 export interface ModelContextClient {
-	requestUserInteraction(callback: (element: Element) => Promise<unknown>): Promise<unknown>;
+  requestUserInteraction(callback: (element: Element) => Promise<unknown>): Promise<unknown>;
 }
 
 /** Callback signature for tool execution per W3C spec */
@@ -29,171 +29,171 @@ export type ToolExecuteCallback = (input: Record<string, unknown>, client: Model
 
 /** A tool registered via navigator.modelContext.registerTool() */
 export interface ModelContextTool {
-	name: string;
-	description: string;
-	inputSchema?: InputSchema;
-	execute: ToolExecuteCallback;
-	annotations?: ToolAnnotations;
+  name: string;
+  description: string;
+  inputSchema?: InputSchema;
+  execute: ToolExecuteCallback;
+  annotations?: ToolAnnotations;
 }
 
 export interface AuthContext {
-	userId?: string;
-	sessionId?: string;
-	roles?: string[];
-	token?: string;
-	[key: string]: unknown;
+  userId?: string;
+  sessionId?: string;
+  roles?: string[];
+  token?: string;
+  [key: string]: unknown;
 }
 
 /** Options for provideContext() */
 export interface ModelContextOptions {
-	tools?: ModelContextTool[];
+  tools?: ModelContextTool[];
 }
 
 // -- Navigator type augmentation matching the WebIDL --
 
 interface ModelContext {
-	provideContext(options?: ModelContextOptions): void;
-	clearContext(): void;
-	registerTool(tool: ModelContextTool): void;
-	unregisterTool(name: string): void;
+  provideContext(options?: ModelContextOptions): void;
+  clearContext(): void;
+  registerTool(tool: ModelContextTool): void;
+  unregisterTool(name: string): void;
 }
 
 function getModelContext(): ModelContext | undefined {
-	const nav = globalThis.navigator as (Navigator & { modelContext?: ModelContext }) | undefined;
-	if (nav?.modelContext && typeof nav.modelContext.registerTool === "function") {
-		return nav.modelContext;
-	}
-	return undefined;
+  const nav = globalThis.navigator as (Navigator & { modelContext?: ModelContext }) | undefined;
+  if (nav?.modelContext && typeof nav.modelContext.registerTool === "function") {
+    return nav.modelContext;
+  }
+  return undefined;
 }
 
 // -- Plugin interfaces for manifest-driven registration --
 
 export interface WebMCPToolDeclaration {
-	name: string;
-	description: string;
-	inputSchema?: InputSchema;
-	annotations?: ToolAnnotations;
+  name: string;
+  description: string;
+  inputSchema?: InputSchema;
+  annotations?: ToolAnnotations;
 }
 
 export interface WebMCPPlugin {
-	getManifest(): { webmcpTools?: WebMCPToolDeclaration[] };
-	getWebMCPHandlers?(): Record<string, ToolExecuteCallback>;
+  getManifest(): { webmcpTools?: WebMCPToolDeclaration[] };
+  getWebMCPHandlers?(): Record<string, ToolExecuteCallback>;
 }
 
 // -- Registry --
 
 export class WebMCPRegistry {
-	private tools: Map<string, ModelContextTool> = new Map();
-	private authContext: AuthContext = {};
+  private tools: Map<string, ModelContextTool> = new Map();
+  private authContext: AuthContext = {};
 
-	/** Check whether the browser supports navigator.modelContext */
-	isSupported(): boolean {
-		return getModelContext() !== undefined;
-	}
+  /** Check whether the browser supports navigator.modelContext */
+  isSupported(): boolean {
+    return getModelContext() !== undefined;
+  }
 
-	/** Set the auth context that will be injected into tool execute wrappers */
-	setAuthContext(auth: AuthContext): void {
-		this.authContext = { ...auth };
-	}
+  /** Set the auth context that will be injected into tool execute wrappers */
+  setAuthContext(auth: AuthContext): void {
+    this.authContext = { ...auth };
+  }
 
-	/** Get the current auth context */
-	getAuthContext(): AuthContext {
-		return { ...this.authContext };
-	}
+  /** Get the current auth context */
+  getAuthContext(): AuthContext {
+    return { ...this.authContext };
+  }
 
-	/**
-	 * Register a single WebMCP tool.
-	 *
-	 * The user-provided execute callback receives (input, client) per the spec.
-	 * Auth is available via registry.getAuthContext() inside execute callbacks.
-	 */
-	register(tool: ModelContextTool): void {
-		const mc = getModelContext();
-		if (mc) {
-			mc.registerTool({
-				name: tool.name,
-				description: tool.description,
-				inputSchema: tool.inputSchema,
-				execute: (input: Record<string, unknown>, client: ModelContextClient) => tool.execute(input, client),
-				annotations: tool.annotations,
-			});
-		}
-		this.tools.set(tool.name, tool);
-	}
+  /**
+   * Register a single WebMCP tool.
+   *
+   * The user-provided execute callback receives (input, client) per the spec.
+   * Auth is available via registry.getAuthContext() inside execute callbacks.
+   */
+  register(tool: ModelContextTool): void {
+    const mc = getModelContext();
+    if (mc) {
+      mc.registerTool({
+        name: tool.name,
+        description: tool.description,
+        inputSchema: tool.inputSchema,
+        execute: (input: Record<string, unknown>, client: ModelContextClient) => tool.execute(input, client),
+        annotations: tool.annotations,
+      });
+    }
+    this.tools.set(tool.name, tool);
+  }
 
-	/** Unregister a tool by name */
-	unregister(name: string): void {
-		const mc = getModelContext();
-		if (mc) {
-			mc.unregisterTool(name);
-		}
-		this.tools.delete(name);
-	}
+  /** Unregister a tool by name */
+  unregister(name: string): void {
+    const mc = getModelContext();
+    if (mc) {
+      mc.unregisterTool(name);
+    }
+    this.tools.delete(name);
+  }
 
-	/** Get a registered tool by name */
-	get(name: string): ModelContextTool | undefined {
-		return this.tools.get(name);
-	}
+  /** Get a registered tool by name */
+  get(name: string): ModelContextTool | undefined {
+    return this.tools.get(name);
+  }
 
-	/** List all registered tool names */
-	list(): string[] {
-		return Array.from(this.tools.keys());
-	}
+  /** List all registered tool names */
+  list(): string[] {
+    return Array.from(this.tools.keys());
+  }
 
-	/** Number of registered tools */
-	get size(): number {
-		return this.tools.size;
-	}
+  /** Number of registered tools */
+  get size(): number {
+    return this.tools.size;
+  }
 
-	/** Unregister all tools */
-	clear(): void {
-		for (const name of this.tools.keys()) {
-			const mc = getModelContext();
-			if (mc) {
-				mc.unregisterTool(name);
-			}
-		}
-		this.tools.clear();
-	}
+  /** Unregister all tools */
+  clear(): void {
+    for (const name of this.tools.keys()) {
+      const mc = getModelContext();
+      if (mc) {
+        mc.unregisterTool(name);
+      }
+    }
+    this.tools.clear();
+  }
 
-	/**
-	 * Register all WebMCP tools declared in a plugin's manifest.
-	 * Merges manifest declarations with runtime handlers from getWebMCPHandlers().
-	 */
-	registerPlugin(plugin: WebMCPPlugin): void {
-		const manifest = plugin.getManifest();
-		const declarations = manifest.webmcpTools;
-		if (!declarations || declarations.length === 0) {
-			return;
-		}
+  /**
+   * Register all WebMCP tools declared in a plugin's manifest.
+   * Merges manifest declarations with runtime handlers from getWebMCPHandlers().
+   */
+  registerPlugin(plugin: WebMCPPlugin): void {
+    const manifest = plugin.getManifest();
+    const declarations = manifest.webmcpTools;
+    if (!declarations || declarations.length === 0) {
+      return;
+    }
 
-		const handlers = plugin.getWebMCPHandlers?.() ?? {};
+    const handlers = plugin.getWebMCPHandlers?.() ?? {};
 
-		for (const decl of declarations) {
-			const execute = handlers[decl.name];
-			if (typeof execute !== "function") {
-				continue;
-			}
-			this.register({
-				name: decl.name,
-				description: decl.description,
-				inputSchema: decl.inputSchema,
-				execute,
-				annotations: decl.annotations,
-			});
-		}
-	}
+    for (const decl of declarations) {
+      const execute = handlers[decl.name];
+      if (typeof execute !== "function") {
+        continue;
+      }
+      this.register({
+        name: decl.name,
+        description: decl.description,
+        inputSchema: decl.inputSchema,
+        execute,
+        annotations: decl.annotations,
+      });
+    }
+  }
 
-	/**
-	 * Unregister all WebMCP tools declared in a plugin's manifest.
-	 */
-	unregisterPlugin(plugin: WebMCPPlugin): void {
-		const manifest = plugin.getManifest();
-		const declarations = manifest.webmcpTools ?? [];
-		for (const decl of declarations) {
-			this.unregister(decl.name);
-		}
-	}
+  /**
+   * Unregister all WebMCP tools declared in a plugin's manifest.
+   */
+  unregisterPlugin(plugin: WebMCPPlugin): void {
+    const manifest = plugin.getManifest();
+    const declarations = manifest.webmcpTools ?? [];
+    for (const decl of declarations) {
+      this.unregister(decl.name);
+    }
+  }
 }
 
 /**
@@ -203,16 +203,16 @@ export class WebMCPRegistry {
  * and automatically registers/unregisters WebMCP tools.
  */
 export function bindPluginLifecycle(
-	registry: WebMCPRegistry,
-	eventBus: {
-		on(event: string, handler: (...args: unknown[]) => void): void;
-	},
+  registry: WebMCPRegistry,
+  eventBus: {
+    on(event: string, handler: (...args: unknown[]) => void): void;
+  },
 ): void {
-	eventBus.on("plugin:loaded", (...args: unknown[]) => {
-		registry.registerPlugin(args[0] as WebMCPPlugin);
-	});
+  eventBus.on("plugin:loaded", (...args: unknown[]) => {
+    registry.registerPlugin(args[0] as WebMCPPlugin);
+  });
 
-	eventBus.on("plugin:unloaded", (...args: unknown[]) => {
-		registry.unregisterPlugin(args[0] as WebMCPPlugin);
-	});
+  eventBus.on("plugin:unloaded", (...args: unknown[]) => {
+    registry.unregisterPlugin(args[0] as WebMCPPlugin);
+  });
 }
