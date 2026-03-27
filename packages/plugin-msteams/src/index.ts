@@ -21,7 +21,7 @@ import {
   TurnContext,
 } from "botbuilder";
 import winston from "winston";
-import { createMsteamsExtension, type MsteamsPluginState } from "./msteams-extension";
+import { createMsteamsExtension, type MsteamsPluginState } from "./msteams-extension.js";
 import type {
   AgentIdentity,
   ChannelCommand,

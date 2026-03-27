@@ -12,6 +12,12 @@
   ],
   "license": "MIT",
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "name": "@wopr-network/plugin-types",
   "peerDependencies": {
     "zod": "^4.3.6"

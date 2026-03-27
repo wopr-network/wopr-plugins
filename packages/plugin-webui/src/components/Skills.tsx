@@ -1,5 +1,5 @@
 import { type Component, createSignal, For, onMount, Show } from "solid-js";
-import { type AvailableSkill, api, type InstalledSkill } from "../lib/api";
+import { type AvailableSkill, api, type InstalledSkill } from "../lib/api.js";
 
 const Skills: Component = () => {
 	const [tab, setTab] = createSignal<"installed" | "available">("installed");

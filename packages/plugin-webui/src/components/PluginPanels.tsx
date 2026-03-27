@@ -9,7 +9,7 @@ import {
 	Show,
 	Switch,
 } from "solid-js";
-import { api, type ConfigFieldDef, type PluginManifestSummary, type WebUIPanel } from "../lib/api";
+import { api, type ConfigFieldDef, type PluginManifestSummary, type WebUIPanel } from "../lib/api.js";
 
 const DEFAULT_POLL_MS = 10_000;
 

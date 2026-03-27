@@ -263,4 +263,8 @@ export interface WOPRPluginContext {
 
 	// Storage API - plugin-extensible database storage
 	storage: StorageApi;
+
+	// Voice capabilities (optional — not all platforms implement these)
+	hasVoice?(): { tts: boolean; stt: boolean };
+	registerSTTProvider?(provider: unknown): void;
 }

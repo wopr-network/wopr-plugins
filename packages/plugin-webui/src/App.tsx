@@ -11,10 +11,10 @@ import {
 	Suspense,
 } from "solid-js";
 import { Dynamic } from "solid-js/web";
-import PluginPanels from "./components/PluginPanels";
-import Plugins from "./components/Plugins";
-import Settings from "./components/Settings";
-import Skills from "./components/Skills";
+import PluginPanels from "./components/PluginPanels.js";
+import Plugins from "./components/Plugins.js";
+import Settings from "./components/Settings.js";
+import Skills from "./components/Skills.js";
 import {
 	api,
 	type PluginUiComponentProps,
@@ -22,7 +22,7 @@ import {
 	type StreamEvent,
 	type UiComponentExtension,
 	type WebUiExtension,
-} from "./lib/api";
+} from "./lib/api.js";
 
 // Cache for dynamically imported components
 const componentCache = new Map<string, any>();
