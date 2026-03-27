@@ -37,7 +37,7 @@ beforeEach(async () => {
 	mockCodexInstance.resumeThread.mockReset().mockReturnValue(mockThread);
 	mockCodexInstance.listModels.mockReset();
 
-	const mod = await import("../index.js");
+	const mod = await import("../src/index.js");
 	const plugin = mod.default;
 	const ctx = {
 		log: { info: vi.fn() },

@@ -31,7 +31,7 @@ describe("wopr-plugin-voice-deepgram-stt", () => {
 	beforeEach(async () => {
 		vi.resetModules();
 		vi.stubEnv("DEEPGRAM_API_KEY", "test-key-123");
-		const mod = await import("./index.js");
+		const mod = await import("../src/index.js");
 		plugin = mod.default;
 	});
 

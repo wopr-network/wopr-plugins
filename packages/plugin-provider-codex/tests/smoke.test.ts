@@ -15,7 +15,7 @@ vi.mock("node:fs", async (importOriginal) => {
 
 describe("provider-codex plugin", () => {
 	it("exports a valid WOPRPlugin with required fields", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 
 		expect(plugin).toBeDefined();
@@ -26,7 +26,7 @@ describe("provider-codex plugin", () => {
 	});
 
 	it("has a manifest with required fields", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 
 		expect(plugin.manifest).toBeDefined();
@@ -38,7 +38,7 @@ describe("provider-codex plugin", () => {
 	});
 
 	it("init registers provider without throwing", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 
 		const ctx = {
@@ -52,7 +52,7 @@ describe("provider-codex plugin", () => {
 	});
 
 	it("shutdown completes without throwing", async () => {
-		const mod = await import("../index.js");
+		const mod = await import("../src/index.js");
 		const plugin = mod.default;
 
 		await expect(plugin.shutdown?.()).resolves.not.toThrow();

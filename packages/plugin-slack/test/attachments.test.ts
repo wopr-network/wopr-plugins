@@ -87,6 +87,16 @@ vi.mock("@slack/bolt", () => {
 	};
 });
 
+/** Create a mock logger compatible with the saveAttachments signature */
+function mockLogger() {
+	return {
+		info: vi.fn(),
+		warn: vi.fn(),
+		error: vi.fn(),
+		debug: vi.fn(),
+	} as any;
+}
+
 describe("saveAttachments", () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
@@ -95,7 +105,7 @@ describe("saveAttachments", () => {
 
 	it("returns empty array when no files provided", async () => {
 		const { saveAttachments } = await import("../src/index.js");
-		const result = await saveAttachments([], "U123", "xoxb-token");
+		const result = await saveAttachments([], "U123", "xoxb-token", mockLogger());
 		expect(result).toEqual([]);
 	});
 
@@ -113,7 +123,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U456", "xoxb-test-token");
+		const result = await saveAttachments(files, "U456", "xoxb-test-token", mockLogger());
 
 		expect(fetchMock).toHaveBeenCalledWith(
 			"https://files.slack.com/files-pri/T123/download/report.pdf",
@@ -137,7 +147,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U789", "xoxb-token");
+		const result = await saveAttachments(files, "U789", "xoxb-token", mockLogger());
 
 		expect(fetchMock).toHaveBeenCalledWith(
 			"https://files.slack.com/files-pri/T123/image.png",
@@ -150,7 +160,7 @@ describe("saveAttachments", () => {
 		const { saveAttachments } = await import("../src/index.js");
 		const files = [{ id: "F003", name: "nourl.txt" }];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toEqual([]);
 		expect(fetchMock).not.toHaveBeenCalled();
 	});
@@ -167,7 +177,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toEqual([]);
 	});
 
@@ -196,7 +206,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toHaveLength(2);
 		expect(result[0]).toContain("file1.txt");
 		expect(result[1]).toContain("file3.txt");
@@ -214,7 +224,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toHaveLength(1);
 		// Special chars replaced with underscores
 		expect(result[0]).toContain("my_file__1___final_.txt");
@@ -235,7 +245,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		await saveAttachments(files, "U123", "xoxb-token");
+		await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(mockMkdirSync).toHaveBeenCalledWith(
 			expect.any(String),
 			{ recursive: true },
@@ -254,7 +264,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toEqual([]);
 	});
 
@@ -269,7 +279,7 @@ describe("saveAttachments", () => {
 			},
 		];
 
-		const result = await saveAttachments(files, "U123", "xoxb-token");
+		const result = await saveAttachments(files, "U123", "xoxb-token", mockLogger());
 		expect(result).toHaveLength(1);
 		expect(result[0]).toContain("attachment");
 	});
