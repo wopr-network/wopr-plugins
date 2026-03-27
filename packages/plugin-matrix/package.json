@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@wopr-network/plugin-types": "workspace:*",
-    "matrix-bot-sdk": "^0.7.0",
+    "matrix-bot-sdk": "^0.8.0",
     "winston": "^3.19.0",
     "zod": "^4.3.6"
   },
