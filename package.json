@@ -15,6 +15,9 @@
     "version-packages": "changeset version",
     "release": "turbo build && changeset publish"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": []
+  },
   "devDependencies": {
     "@biomejs/biome": "2.4.4",
     "@changesets/cli": "^2.29.4",

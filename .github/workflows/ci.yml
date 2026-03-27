@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   ci:
-    runs-on: self-hosted, Linux, X64
+    runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -26,8 +26,11 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Lint, build, test affected packages
-        run: pnpm turbo lint build test --filter='...[origin/main]'
+      - name: Lint and build affected packages
+        run: pnpm turbo lint build --filter='...[origin/main]'
+
+      - name: Test affected packages
+        run: pnpm turbo test --filter='...[origin/main]'
 
       - name: Validate plugin registry
         run: pnpm run generate-registry --check

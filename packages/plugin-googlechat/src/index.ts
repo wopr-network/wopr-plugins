@@ -69,26 +69,15 @@ function initLogger(): winston.Logger {
     defaultMeta: { service: "wopr-plugin-googlechat" },
     transports: [
       new winston.transports.File({
-        filename: path.join(
-          process.env.WOPR_HOME || "/tmp/wopr-test",
-          "logs",
-          "googlechat-plugin-error.log",
-        ),
+        filename: path.join(process.env.WOPR_HOME || "/tmp/wopr-test", "logs", "googlechat-plugin-error.log"),
         level: "error",
       }),
       new winston.transports.File({
-        filename: path.join(
-          process.env.WOPR_HOME || "/tmp/wopr-test",
-          "logs",
-          "googlechat-plugin.log",
-        ),
+        filename: path.join(process.env.WOPR_HOME || "/tmp/wopr-test", "logs", "googlechat-plugin.log"),
         level: "debug",
       }),
       new winston.transports.Console({
-        format: winston.format.combine(
-          winston.format.colorize(),
-          winston.format.simple(),
-        ),
+        format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
         level: "warn",
       }),
     ],
@@ -193,11 +182,7 @@ const configSchema: ConfigSchema = {
 // Pure utility functions (exported for testing)
 // ============================================================================
 
-export function buildSessionKey(
-  spaceId: string,
-  userId: string,
-  isDM: boolean,
-): string {
+export function buildSessionKey(spaceId: string, userId: string, isDM: boolean): string {
   if (isDM) {
     return `googlechat-dm-${userId}`;
   }
@@ -282,11 +267,7 @@ export function buildNotificationCard(
   }>;
 } {
   const escapeHtml = (s: string) =>
-    s
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const safeFromLabel = escapeHtml(from ?? pubkey ?? "unknown peer");
   return {
     cardsV2: [
@@ -357,10 +338,7 @@ export function buildNotificationCard(
  * Determine whether the plugin should respond to this event.
  * Takes the config explicitly so it can be tested without module state.
  */
-export function shouldRespond(
-  event: GoogleChatEvent,
-  cfg: GoogleChatConfig,
-): boolean {
+export function shouldRespond(event: GoogleChatEvent, cfg: GoogleChatConfig): boolean {
   const { type } = event;
 
   if (type === "REMOVED_FROM_SPACE") return false;
@@ -408,8 +386,7 @@ export function shouldRespond(
 // ============================================================================
 
 async function initGoogleAuth(): Promise<GoogleAuth> {
-  const keyPath =
-    config.serviceAccountKeyPath || process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const keyPath = config.serviceAccountKeyPath || process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
   if (!keyPath) {
     throw new Error(
@@ -427,18 +404,13 @@ async function initGoogleAuth(): Promise<GoogleAuth> {
 // Card click handler
 // ============================================================================
 
-async function handleCardClick(
-  event: GoogleChatEvent,
-): Promise<GoogleChatSyncResponse> {
+async function handleCardClick(event: GoogleChatEvent): Promise<GoogleChatSyncResponse> {
   if (!event.action) return {};
 
   const methodName = event.action.actionMethodName;
   const params = event.action.parameters ?? [];
 
-  if (
-    methodName === "notification_accept" ||
-    methodName === "notification_deny"
-  ) {
+  if (methodName === "notification_accept" || methodName === "notification_deny") {
     const notifId = params.find((p) => p.key === "notificationId")?.value;
     if (notifId) {
       const entry = pendingCallbacks.get(notifId);
@@ -468,8 +440,7 @@ async function handleCardClick(
           text: "An error occurred processing your response.",
         };
       }
-      const label =
-        methodName === "notification_accept" ? "accepted" : "denied";
+      const label = methodName === "notification_accept" ? "accepted" : "denied";
       return {
         actionResponse: { type: "UPDATE_MESSAGE" },
         text: `Friend request ${label}.`,
@@ -489,19 +460,14 @@ async function handleCardClick(
 // Slash command handler
 // ============================================================================
 
-async function handleSlashCommand(
-  event: GoogleChatEvent,
-): Promise<GoogleChatSyncResponse> {
+async function handleSlashCommand(event: GoogleChatEvent): Promise<GoogleChatSyncResponse> {
   if (!pluginCtx || !event.message?.slashCommand) return { text: "" };
 
   const commandId = event.message.slashCommand.commandId;
   const messageText = event.message.argumentText?.trim() ?? "";
 
-  const slashAnnotation = event.message.annotations?.find(
-    (a) => a.type === "SLASH_COMMAND",
-  );
-  const commandName =
-    slashAnnotation?.slashCommand?.commandName ?? `command-${commandId}`;
+  const slashAnnotation = event.message.annotations?.find((a) => a.type === "SLASH_COMMAND");
+  const commandName = slashAnnotation?.slashCommand?.commandName ?? `command-${commandId}`;
 
   logger.info({
     msg: "Slash command received",
@@ -512,9 +478,7 @@ async function handleSlashCommand(
 
   const spaceId = extractSpaceId(event.message.space.name);
   const userId = extractUserId(event.message.sender.name);
-  const isDM =
-    event.message.space.singleUserBotDm === true ||
-    event.message.space.type === "DM";
+  const isDM = event.message.space.singleUserBotDm === true || event.message.space.type === "DM";
   const sessionKey = buildSessionKey(spaceId, userId, isDM);
 
   const channelRef = {
@@ -531,11 +495,7 @@ async function handleSlashCommand(
     });
 
     if (config.useCards) {
-      return formatAsCard(
-        response,
-        agentIdentity.name ?? "WOPR",
-        config.cardThemeColor,
-      );
+      return formatAsCard(response, agentIdentity.name ?? "WOPR", config.cardThemeColor);
     }
     return { text: response };
   } catch (error: unknown) {
@@ -552,9 +512,7 @@ async function handleSlashCommand(
 // Message handler
 // ============================================================================
 
-async function handleMessage(
-  event: GoogleChatEvent,
-): Promise<GoogleChatSyncResponse> {
+async function handleMessage(event: GoogleChatEvent): Promise<GoogleChatSyncResponse> {
   if (!pluginCtx || !event.message) return { text: "" };
 
   const msg = event.message;
@@ -591,9 +549,7 @@ async function handleMessage(
       channel: channelRef,
     });
 
-    const responseText = truncateToGChatLimit(
-      response || "I couldn't generate a response. Please try again.",
-    );
+    const responseText = truncateToGChatLimit(response || "I couldn't generate a response. Please try again.");
 
     const threadResponse: GoogleChatSyncResponse = {};
     if (config.replyToMode === "thread" && msg.thread) {
@@ -602,25 +558,16 @@ async function handleMessage(
 
     if (config.useCards) {
       return {
-        ...formatAsCard(
-          responseText,
-          agentIdentity.name ?? "WOPR",
-          config.cardThemeColor,
-        ),
+        ...formatAsCard(responseText, agentIdentity.name ?? "WOPR", config.cardThemeColor),
         ...threadResponse,
       };
     }
     return { text: responseText, ...threadResponse };
   } catch (error: unknown) {
     logger.error({ msg: "Inject failed", error: String(error) });
-    const errorText =
-      "Sorry, I encountered an error processing your request. Please try again.";
+    const errorText = "Sorry, I encountered an error processing your request. Please try again.";
     if (config.useCards) {
-      return formatAsCard(
-        errorText,
-        agentIdentity.name ?? "WOPR",
-        config.cardThemeColor,
-      );
+      return formatAsCard(errorText, agentIdentity.name ?? "WOPR", config.cardThemeColor);
     }
     return { text: errorText };
   }
@@ -630,9 +577,7 @@ async function handleMessage(
 // Main event dispatcher
 // ============================================================================
 
-async function handleEvent(
-  event: GoogleChatEvent,
-): Promise<GoogleChatSyncResponse> {
+async function handleEvent(event: GoogleChatEvent): Promise<GoogleChatSyncResponse> {
   if (event.type === "REMOVED_FROM_SPACE") {
     const spaceId = extractSpaceId(event.space?.name ?? "");
     logger.info({ msg: "Removed from space", spaceId });
@@ -654,11 +599,7 @@ async function handleEvent(
     }
 
     if (config.useCards) {
-      return formatAsCard(
-        welcomeText,
-        agentIdentity.name ?? "WOPR",
-        config.cardThemeColor,
-      );
+      return formatAsCard(welcomeText, agentIdentity.name ?? "WOPR", config.cardThemeColor);
     }
     return { text: welcomeText };
   }
@@ -672,9 +613,7 @@ async function handleEvent(
       if (event.message && pluginCtx) {
         const spaceId = extractSpaceId(event.message.space.name);
         const userId = extractUserId(event.message.sender.name);
-        const isDM =
-          event.message.space.singleUserBotDm === true ||
-          event.message.space.type === "DM";
+        const isDM = event.message.space.singleUserBotDm === true || event.message.space.type === "DM";
         const sessionKey = buildSessionKey(spaceId, userId, isDM);
         try {
           pluginCtx.logMessage(sessionKey, event.message.text, {
@@ -699,10 +638,7 @@ async function handleEvent(
 
 const _oauth2Client = new OAuth2Client();
 
-export async function verifyGoogleChatJwt(
-  authHeader: string | undefined,
-  projectNumber: string,
-): Promise<boolean> {
+export async function verifyGoogleChatJwt(authHeader: string | undefined, projectNumber: string): Promise<boolean> {
   if (!authHeader?.startsWith("Bearer ")) return false;
   const token = authHeader.slice(7);
   const audience = `https://chat.googleapis.com/${projectNumber}`;
@@ -824,19 +760,13 @@ function buildChannelProvider(): GoogleChatChannelProvider {
       }
 
       const text = truncateToGChatLimit(content);
-      const spaceName = channelId.startsWith("spaces/")
-        ? channelId
-        : `spaces/${channelId}`;
+      const spaceName = channelId.startsWith("spaces/") ? channelId : `spaces/${channelId}`;
 
       try {
         await chatClient.spaces.messages.create({
           parent: spaceName,
           requestBody: config.useCards
-            ? formatAsCard(
-                text,
-                agentIdentity.name ?? "WOPR",
-                config.cardThemeColor,
-              )
+            ? formatAsCard(text, agentIdentity.name ?? "WOPR", config.cardThemeColor)
             : { text },
         });
       } catch (err: unknown) {
@@ -867,9 +797,7 @@ function buildChannelProvider(): GoogleChatChannelProvider {
 
       const notificationId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
       const fromLabel = payload.from ?? payload.pubkey ?? "unknown peer";
-      const spaceName = channelId.startsWith("spaces/")
-        ? channelId
-        : `spaces/${channelId}`;
+      const spaceName = channelId.startsWith("spaces/") ? channelId : `spaces/${channelId}`;
 
       const withButtons = !!(callbacks?.onAccept ?? callbacks?.onDeny);
       const cardBody = buildNotificationCard(
@@ -883,10 +811,7 @@ function buildChannelProvider(): GoogleChatChannelProvider {
       // Register callbacks BEFORE API call to avoid race condition (Bug 4)
       if (callbacks) {
         // 5-minute TTL; timer stored so it can be cancelled on callback execution
-        const timer = setTimeout(
-          () => pendingCallbacks.delete(notificationId),
-          5 * 60 * 1000,
-        );
+        const timer = setTimeout(() => pendingCallbacks.delete(notificationId), 5 * 60 * 1000);
         pendingCallbacks.set(notificationId, { callbacks, timer });
       }
 
@@ -968,10 +893,7 @@ const plugin: WOPRPlugin = {
     }>();
     config = fullConfig?.channels?.googlechat ?? {};
 
-    if (
-      !config.serviceAccountKeyPath &&
-      process.env.GOOGLE_APPLICATION_CREDENTIALS
-    ) {
+    if (!config.serviceAccountKeyPath && process.env.GOOGLE_APPLICATION_CREDENTIALS) {
       config.serviceAccountKeyPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
     }
     if (!config.projectNumber && process.env.GOOGLE_PROJECT_NUMBER) {
@@ -995,10 +917,7 @@ const plugin: WOPRPlugin = {
       chatClient = google.chat({ version: "v1", auth: auth as any });
       ctx.log.info("Google Chat API client initialized");
     } catch (error: unknown) {
-      ctx.log.warn(
-        "Google Chat API client not initialized (async messaging unavailable): " +
-          String(error),
-      );
+      ctx.log.warn("Google Chat API client not initialized (async messaging unavailable): " + String(error));
       // Plugin continues in sync-only mode via webhook responses
     }
 
@@ -1007,24 +926,17 @@ const plugin: WOPRPlugin = {
     ctx.registerChannelProvider(channelProvider);
 
     // 6. Subscribe to config changes
-    configUnsub = ctx.events.on(
-      "config:change",
-      async ({ key, newValue }: { key: string; newValue: unknown }) => {
-        if (key === "channels.googlechat") {
-          config = (newValue as GoogleChatConfig) ?? {};
-          ctx.log.info("Google Chat config updated");
-        }
-      },
-    );
+    configUnsub = ctx.events.on("config:change", async ({ key, newValue }: { key: string; newValue: unknown }) => {
+      if (key === "channels.googlechat") {
+        config = (newValue as GoogleChatConfig) ?? {};
+        ctx.log.info("Google Chat config updated");
+      }
+    });
 
     const port = config.webhookPort ?? 8443;
     const webhookPath = config.webhookPath ?? "/googlechat/events";
-    ctx.log.info(
-      `Google Chat plugin initialized — webhook: https://<domain>:${port}${webhookPath}`,
-    );
-    ctx.log.info(
-      "Configure this URL in Google Cloud Console > Google Chat API > Configuration > Connection settings",
-    );
+    ctx.log.info(`Google Chat plugin initialized — webhook: https://<domain>:${port}${webhookPath}`);
+    ctx.log.info("Configure this URL in Google Cloud Console > Google Chat API > Configuration > Connection settings");
   },
 
   async shutdown(): Promise<void> {

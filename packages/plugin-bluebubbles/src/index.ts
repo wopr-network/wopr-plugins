@@ -157,14 +157,10 @@ export function resolveCredentials(): { serverUrl: string; password: string } {
   const password = config.password || process.env.BLUEBUBBLES_PASSWORD;
 
   if (!serverUrl) {
-    throw new Error(
-      "BlueBubbles server URL required. Set serverUrl config or BLUEBUBBLES_URL env var.",
-    );
+    throw new Error("BlueBubbles server URL required. Set serverUrl config or BLUEBUBBLES_URL env var.");
   }
   if (!password) {
-    throw new Error(
-      "BlueBubbles password required. Set password config or BLUEBUBBLES_PASSWORD env var.",
-    );
+    throw new Error("BlueBubbles password required. Set password config or BLUEBUBBLES_PASSWORD env var.");
   }
 
   return { serverUrl, password };
@@ -185,26 +181,18 @@ export function isAllowed(senderAddress: string, isGroup: boolean): boolean {
     if (policy === "open") return true;
     if (policy === "disabled") return false;
     const allowed = config.groupAllowFrom || config.allowFrom || [];
-    return (
-      allowed.includes("*") || allowed.some((a) => a.toLowerCase() === senderAddress.toLowerCase())
-    );
+    return allowed.includes("*") || allowed.some((a) => a.toLowerCase() === senderAddress.toLowerCase());
   } else {
     const policy = config.dmPolicy || "open";
     if (policy === "open") return true;
     if (policy === "disabled") return false;
     const allowed = config.allowFrom || [];
-    return (
-      allowed.includes("*") || allowed.some((a) => a.toLowerCase() === senderAddress.toLowerCase())
-    );
+    return allowed.includes("*") || allowed.some((a) => a.toLowerCase() === senderAddress.toLowerCase());
   }
 }
 
 // Send a response back to a chat, splitting long messages
-export async function sendResponse(
-  chatGuid: string,
-  text: string,
-  replyToGuid?: string,
-): Promise<void> {
+export async function sendResponse(chatGuid: string, text: string, replyToGuid?: string): Promise<void> {
   if (!bbClient) return;
 
   const maxLength = 4000;
@@ -308,19 +296,13 @@ export async function handleNewMessage(message: BBMessage): Promise<void> {
         const data = await bbClient.downloadAttachment(attachment.guid);
         if (!data || data.length === 0) {
           logger.error(`Attachment ${attachment.guid} download returned empty data`);
-          await sendResponse(
-            chatGuid,
-            `Sorry, I couldn't download the attachment "${attachment.transferName}".`,
-          );
+          await sendResponse(chatGuid, `Sorry, I couldn't download the attachment "${attachment.transferName}".`);
           return;
         }
         text += `${text ? " " : ""}[attachment: ${attachment.transferName}]`;
       } catch (error: unknown) {
         logger.error(`Failed to download attachment ${attachment.guid}:`, error);
-        await sendResponse(
-          chatGuid,
-          `Sorry, I couldn't download the attachment "${attachment.transferName}".`,
-        );
+        await sendResponse(chatGuid, `Sorry, I couldn't download the attachment "${attachment.transferName}".`);
         return;
       }
     }
@@ -412,9 +394,7 @@ const plugin: WOPRPlugin = {
     try {
       ({ serverUrl, password } = resolveCredentials());
     } catch (_: unknown) {
-      logger.warn(
-        "No BlueBubbles credentials configured. Run 'wopr configure --plugin bluebubbles' to set up.",
-      );
+      logger.warn("No BlueBubbles credentials configured. Run 'wopr configure --plugin bluebubbles' to set up.");
       return;
     }
 

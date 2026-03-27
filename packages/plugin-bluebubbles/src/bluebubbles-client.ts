@@ -1,11 +1,5 @@
 import { io, type Socket } from "socket.io-client";
-import type {
-  BBApiResponse,
-  BBAttachment,
-  BBChat,
-  BBMessage,
-  BBTypingNotification,
-} from "./types.js";
+import type { BBApiResponse, BBAttachment, BBChat, BBMessage, BBTypingNotification } from "./types.js";
 
 export type BBEventHandler = (message: BBMessage) => void;
 export type BBTypingHandler = (notification: BBTypingNotification) => void;
@@ -70,11 +64,7 @@ export class BlueBubblesClient {
     this.onTyping = handler;
   }
 
-  private async apiRequest<T>(
-    method: string,
-    path: string,
-    body?: Record<string, unknown>,
-  ): Promise<BBApiResponse<T>> {
+  private async apiRequest<T>(method: string, path: string, body?: Record<string, unknown>): Promise<BBApiResponse<T>> {
     const url = `${this.serverUrl}/api/v1${path}?password=${encodeURIComponent(this.password)}`;
     const options: RequestInit = {
       method,
@@ -133,11 +123,7 @@ export class BlueBubblesClient {
     });
   }
 
-  async getChatMessages(
-    chatGuid: string,
-    limit = 50,
-    after?: number,
-  ): Promise<BBApiResponse<BBMessage[]>> {
+  async getChatMessages(chatGuid: string, limit = 50, after?: number): Promise<BBApiResponse<BBMessage[]>> {
     return this.apiRequest<BBMessage[]>("POST", "/message/query", {
       chatGuid,
       limit,
@@ -185,11 +171,7 @@ export class BlueBubblesClient {
     return Buffer.from(arrayBuf);
   }
 
-  async sendAttachment(
-    chatGuid: string,
-    fileBuffer: Buffer,
-    filename: string,
-  ): Promise<BBApiResponse<BBMessage>> {
+  async sendAttachment(chatGuid: string, fileBuffer: Buffer, filename: string): Promise<BBApiResponse<BBMessage>> {
     const url = `${this.serverUrl}/api/v1/message/attachment?password=${encodeURIComponent(this.password)}`;
     const formData = new FormData();
     formData.append("chatGuid", chatGuid);

@@ -13,7 +13,7 @@ jobs:
       (github.event_name == 'check_run' && github.event.check_run.conclusion == 'failure') ||
       (github.event_name == 'issue_comment' && contains(fromJSON('["greptile-apps[bot]","coderabbitai[bot]"]'), github.event.comment.user.login)) ||
       (github.event_name == 'pull_request_review_comment' && contains(fromJSON('["greptile-apps[bot]","coderabbitai[bot]"]'), github.event.comment.user.login))
-    runs-on: self-hosted, Linux, X64
+    runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 15
     permissions:
       contents: write

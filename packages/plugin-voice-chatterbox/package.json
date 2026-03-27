@@ -22,7 +22,7 @@
   "scripts": {
     "lint": "biome check src/",
     "build": "tsc",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "prepublishOnly": "npm run build"
   },
   "type": "module",

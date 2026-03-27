@@ -3,7 +3,8 @@
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": false,
+    "root": "."
   },
   "formatter": {
     "enabled": true,
@@ -43,6 +44,12 @@
       }
     }
   },
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    }
+  },
   "overrides": [
     {
       "includes": ["**/*.test.ts", "**/*.spec.ts", "tests/**"],
@@ -51,6 +58,24 @@
           "suspicious": {
             "noExplicitAny": "off"
           }
+        }
+      }
+    },
+    {
+      "includes": ["packages/plugin-cron/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["packages/plugin-webui/**/*.css"],
+      "css": {
+        "parser": {
+          "cssModules": true
         }
       }
     }

@@ -166,12 +166,12 @@ export async function initialize(
     // Wire up keyword search from memory manager
     const keywordSearchFn = state.memoryManager
       ? async (query: string, limit: number, instanceId?: string) => {
-          const results = await state.memoryManager!.search(query, {
+          const results = await state.memoryManager?.search(query, {
             maxResults: limit,
             instanceId,
             excludeLegacyEntries: !!(instanceId && state.config.search.excludeLegacyEntries),
           });
-          return results.map((r: any) => ({
+          return (results ?? []).map((r: any) => ({
             id: r.id || `${r.path}:${r.startLine}`,
             path: r.path,
             startLine: r.startLine || 0,
@@ -184,8 +184,8 @@ export async function initialize(
         }
       : api.memory?.keywordSearch
         ? async (query: string, limit: number, _instanceId?: string) => {
-            const results = await api.memory!.keywordSearch!(query, limit);
-            return results.map((r: any) => ({
+            const results = await api.memory?.keywordSearch?.(query, limit);
+            return (results ?? []).map((r: any) => ({
               id: r.id || `${r.path}:${r.startLine}`,
               path: r.path,
               startLine: r.startLine || 0,

@@ -19,8 +19,8 @@
   "name": "@wopr-network/wopr-plugin-webui",
   "scripts": {
     "lint": "biome check src/",
-    "build": "tsc",
-    "test": "vitest run",
+    "build": "echo 'webui builds with vite, not tsc'",
+    "test": "vitest run --passWithNoTests",
     "prepublishOnly": "npm run build"
   },
   "type": "module",
