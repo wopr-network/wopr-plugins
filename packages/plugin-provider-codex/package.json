@@ -44,5 +44,11 @@
       "description": "Codex agent SDK",
       "name": "provider-codex"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wopr-network/wopr-plugins.git",
+    "directory": "packages/plugin-provider-codex"
+  },
+  "homepage": "https://github.com/wopr-network/wopr-plugins/tree/main/packages/plugin-provider-codex#readme"
 }
