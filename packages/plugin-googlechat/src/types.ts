@@ -78,11 +78,7 @@ export interface GoogleChatConfig {
 // ============================================================================
 
 /** Google Chat interaction event types */
-export type GoogleChatEventType =
-  | "MESSAGE"
-  | "ADDED_TO_SPACE"
-  | "REMOVED_FROM_SPACE"
-  | "CARD_CLICKED";
+export type GoogleChatEventType = "MESSAGE" | "ADDED_TO_SPACE" | "REMOVED_FROM_SPACE" | "CARD_CLICKED";
 
 /** Google Chat space type */
 export type GoogleChatSpaceType = "DM" | "ROOM" | "SPACE";

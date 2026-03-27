@@ -248,13 +248,13 @@ export class WhisperLocalProvider implements STTProvider {
   private async pullImage(): Promise<void> {
     return new Promise((resolve, reject) => {
       // biome-ignore lint/suspicious/noExplicitAny: dockerode pull callback uses untyped stream
-      this.docker!.pull(this.config.image, (err: Error | null, stream: any) => {
+      this.docker?.pull(this.config.image, (err: Error | null, stream: any) => {
         if (err) {
           reject(err);
           return;
         }
         // biome-ignore lint/suspicious/noExplicitAny: dockerode modem.followProgress uses untyped callbacks
-        (this.docker!.modem as any).followProgress(stream, (progressErr: Error | null) =>
+        (this.docker?.modem as any).followProgress(stream, (progressErr: Error | null) =>
           progressErr ? reject(progressErr) : resolve(),
         );
       });

@@ -27,42 +27,33 @@
 export type SetupFlowType = "paste" | "oauth" | "qr" | "interactive" | "none";
 
 export interface ConfigField {
-	name: string;
-	type:
-		| "text"
-		| "password"
-		| "select"
-		| "checkbox"
-		| "number"
-		| "array"
-		| "boolean"
-		| "object"
-		| "textarea";
-	label: string;
-	placeholder?: string;
-	required?: boolean;
-	default?: unknown;
-	options?: { value: string; label: string }[]; // For select type
-	description?: string;
-	/** For array type: schema of each item */
-	items?: ConfigField;
-	/** For object type: nested fields */
-	fields?: ConfigField[];
-	/**
-	 * How the platform should collect this field's value.
-	 * Defaults to "paste" for text/password, "none" for fields with defaults.
-	 */
-	setupFlow?: SetupFlowType;
-	/** For "oauth" setupFlow: the OAuth provider identifier (e.g., "discord", "slack") */
-	oauthProvider?: string;
-	/** Validation pattern (regex string) applied client-side before submit */
-	pattern?: string;
-	/** Human-readable validation error message */
-	patternError?: string;
-	/** Whether this field contains a secret (masks in UI, encrypted at rest) */
-	secret?: boolean;
-	/** Whether this field is hidden from the config UI (still stored and passed to the plugin) */
-	hidden?: boolean;
+  name: string;
+  type: "text" | "password" | "select" | "checkbox" | "number" | "array" | "boolean" | "object" | "textarea";
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  default?: unknown;
+  options?: { value: string; label: string }[]; // For select type
+  description?: string;
+  /** For array type: schema of each item */
+  items?: ConfigField;
+  /** For object type: nested fields */
+  fields?: ConfigField[];
+  /**
+   * How the platform should collect this field's value.
+   * Defaults to "paste" for text/password, "none" for fields with defaults.
+   */
+  setupFlow?: SetupFlowType;
+  /** For "oauth" setupFlow: the OAuth provider identifier (e.g., "discord", "slack") */
+  oauthProvider?: string;
+  /** Validation pattern (regex string) applied client-side before submit */
+  pattern?: string;
+  /** Human-readable validation error message */
+  patternError?: string;
+  /** Whether this field contains a secret (masks in UI, encrypted at rest) */
+  secret?: boolean;
+  /** Whether this field is hidden from the config UI (still stored and passed to the plugin) */
+  hidden?: boolean;
 }
 
 /**
@@ -70,7 +61,7 @@ export interface ConfigField {
  * Used to render configuration UIs dynamically.
  */
 export interface ConfigSchema {
-	title: string;
-	description?: string;
-	fields: ConfigField[];
+  title: string;
+  description?: string;
+  fields: ConfigField[];
 }

@@ -9,9 +9,9 @@
  * Reference to a communication channel.
  */
 export interface ChannelRef {
-	id: string;
-	type: string;
-	name?: string;
+  id: string;
+  type: string;
+  name?: string;
 }
 
 /**
@@ -19,73 +19,73 @@ export interface ChannelRef {
  * Plugins register these to bridge between WOPR sessions and external channels.
  */
 export interface ChannelAdapter {
-	channel: ChannelRef;
-	session: string;
-	getContext(): Promise<string>;
-	send(message: string): Promise<void>;
+  channel: ChannelRef;
+  session: string;
+  getContext(): Promise<string>;
+  send(message: string): Promise<void>;
 }
 
 /**
  * Context passed to channel command handlers.
  */
 export interface ChannelCommandContext {
-	channel: string;
-	channelType: string;
-	sender: string;
-	args: string[];
-	reply: (msg: string) => Promise<void>;
-	getBotUsername: () => string;
+  channel: string;
+  channelType: string;
+  sender: string;
+  args: string[];
+  reply: (msg: string) => Promise<void>;
+  getBotUsername: () => string;
 }
 
 /**
  * Context passed to channel message parsers.
  */
 export interface ChannelMessageContext {
-	channel: string;
-	channelType: string;
-	sender: string;
-	content: string;
-	reply: (msg: string) => Promise<void>;
-	getBotUsername: () => string;
+  channel: string;
+  channelType: string;
+  sender: string;
+  content: string;
+  reply: (msg: string) => Promise<void>;
+  getBotUsername: () => string;
 }
 
 /**
  * A command that can be registered on channel providers.
  */
 export interface ChannelCommand {
-	name: string;
-	description: string;
-	handler: (ctx: ChannelCommandContext) => Promise<void>;
+  name: string;
+  description: string;
+  handler: (ctx: ChannelCommandContext) => Promise<void>;
 }
 
 /**
  * A message parser that watches channel messages.
  */
 export interface ChannelMessageParser {
-	id: string;
-	pattern: RegExp | ((msg: string) => boolean);
-	handler: (ctx: ChannelMessageContext) => Promise<void>;
+  id: string;
+  pattern: RegExp | ((msg: string) => boolean);
+  handler: (ctx: ChannelMessageContext) => Promise<void>;
 }
 
 /**
  * Callbacks for channel notification actions (e.g. accept/deny friend requests).
  */
 export interface ChannelNotificationCallbacks {
-	onAccept?: () => Promise<void>;
-	onDeny?: () => Promise<void>;
+  onAccept?: () => Promise<void>;
+  onDeny?: () => Promise<void>;
 }
 
 /**
  * Payload for a channel notification (e.g. p2p:friendRequest:pending).
  */
 export interface ChannelNotificationPayload {
-	type: string;
-	from?: string;
-	pubkey?: string;
-	encryptPub?: string;
-	signature?: string;
-	channelName?: string;
-	[key: string]: unknown;
+  type: string;
+  from?: string;
+  pubkey?: string;
+  encryptPub?: string;
+  signature?: string;
+  channelName?: string;
+  [key: string]: unknown;
 }
 
 /**
@@ -96,28 +96,28 @@ export interface ChannelNotificationPayload {
  * commands and message parsers.
  */
 export interface ChannelProvider {
-	id: string;
+  id: string;
 
-	// Command registration
-	registerCommand(cmd: ChannelCommand): void;
-	unregisterCommand(name: string): void;
-	getCommands(): ChannelCommand[];
+  // Command registration
+  registerCommand(cmd: ChannelCommand): void;
+  unregisterCommand(name: string): void;
+  getCommands(): ChannelCommand[];
 
-	// Message watching
-	addMessageParser(parser: ChannelMessageParser): void;
-	removeMessageParser(id: string): void;
-	getMessageParsers(): ChannelMessageParser[];
+  // Message watching
+  addMessageParser(parser: ChannelMessageParser): void;
+  removeMessageParser(id: string): void;
+  getMessageParsers(): ChannelMessageParser[];
 
-	// Send to channel
-	send(channel: string, content: string): Promise<void>;
+  // Send to channel
+  send(channel: string, content: string): Promise<void>;
 
-	// Bot username for this provider
-	getBotUsername(): string;
+  // Bot username for this provider
+  getBotUsername(): string;
 
-	// Send a notification (e.g. friend request) with optional action callbacks
-	sendNotification?(
-		channelId: string,
-		payload: ChannelNotificationPayload,
-		callbacks?: ChannelNotificationCallbacks,
-	): Promise<void>;
+  // Send a notification (e.g. friend request) with optional action callbacks
+  sendNotification?(
+    channelId: string,
+    payload: ChannelNotificationPayload,
+    callbacks?: ChannelNotificationCallbacks,
+  ): Promise<void>;
 }
