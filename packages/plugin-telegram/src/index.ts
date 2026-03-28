@@ -514,8 +514,6 @@ export {
   setMessageIdOnPendingFriendRequest,
   storePendingFriendRequest,
 } from "./friend-buttons.js";
-export { isStandardReaction, STANDARD_REACTIONS } from "./reactions.js";
-export { telegramChannelProvider };
 export {
   buildMainKeyboard,
   buildModelKeyboard,
@@ -523,6 +521,7 @@ export {
   CB_PREFIX,
   parseCallbackData,
 } from "./keyboards.js";
+export { isStandardReaction, STANDARD_REACTIONS } from "./reactions.js";
 export type {
   TelegramChatInfo,
   TelegramExtension,
@@ -536,4 +535,5 @@ export type {
   WebMCPTool,
 } from "./webmcp-telegram.js";
 export { registerTelegramTools } from "./webmcp-telegram.js";
+export { telegramChannelProvider };
 export default plugin;
