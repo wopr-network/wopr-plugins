@@ -34,7 +34,11 @@
         "noConsole": {
           "level": "error",
           "options": {
-            "allow": ["warn", "error", "info"]
+            "allow": [
+              "warn",
+              "error",
+              "info"
+            ]
           }
         }
       },
@@ -52,7 +56,11 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.test.ts", "**/*.spec.ts", "tests/**"],
+      "includes": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "tests/**"
+      ],
       "linter": {
         "rules": {
           "suspicious": {
@@ -62,7 +70,9 @@
       }
     },
     {
-      "includes": ["packages/plugin-cron/**"],
+      "includes": [
+        "packages/plugin-cron/**"
+      ],
       "linter": {
         "rules": {
           "suspicious": {
@@ -72,12 +82,22 @@
       }
     },
     {
-      "includes": ["packages/plugin-webui/**/*.css"],
+      "includes": [
+        "packages/plugin-webui/**/*.css"
+      ],
       "css": {
         "parser": {
           "cssModules": true
         }
       }
     }
-  ]
+  ],
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  }
 }
