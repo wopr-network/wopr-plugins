@@ -25,7 +25,7 @@
     "@modelcontextprotocol/sdk": "^1.27.0",
     "@wopr-network/plugin-types": "workspace:*",
     "winston": "^3.19.0",
-    "zod": "^3.23.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^25.3.0"

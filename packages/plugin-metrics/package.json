@@ -23,7 +23,7 @@
   "dependencies": {
     "hono": "^4.11.9",
     "hono-openapi": "^1.2.0",
-    "zod": "^3.25.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^25.2.3",
