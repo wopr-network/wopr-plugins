@@ -5,21 +5,21 @@ const StdioServerSchema = z.object({
   kind: z.literal("stdio"),
   cmd: z.string().min(1),
   args: z.array(z.string()).optional().default([]),
-  env: z.record(z.string()).optional(),
+  env: z.record(z.string(), z.string()).optional(),
 });
 
 const SseServerSchema = z.object({
   name: z.string().min(1),
   kind: z.literal("sse"),
   url: z.string().url(),
-  headers: z.record(z.string()).optional(),
+  headers: z.record(z.string(), z.string()).optional(),
 });
 
 const HttpServerSchema = z.object({
   name: z.string().min(1),
   kind: z.literal("http"),
   url: z.string().url(),
-  headers: z.record(z.string()).optional(),
+  headers: z.record(z.string(), z.string()).optional(),
 });
 
 const ServerConfigSchema = z.discriminatedUnion("kind", [StdioServerSchema, SseServerSchema, HttpServerSchema]);
