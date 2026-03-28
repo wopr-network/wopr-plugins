@@ -27,6 +27,7 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.2.85",
     "matrix-bot-sdk": "0.8.0"
   }
 }
