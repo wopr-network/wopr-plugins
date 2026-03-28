@@ -2,6 +2,8 @@
  * Local type definitions for WOPR BlueBubbles Plugin
  */
 
+import type { WOPRPluginContext } from "@wopr-network/plugin-types";
+
 export type {
   AgentIdentity,
   PluginInjectOptions as InjectOptions,
@@ -9,6 +11,8 @@ export type {
   StreamMessage,
   UserProfile,
 } from "@wopr-network/plugin-types";
+
+export type { WOPRPluginContext };
 
 // BlueBubbles uses "required"/"optional" setupFlow values which differ from
 // the canonical SetupFlowType in plugin-types. Keep these local until plugin-types aligns.
@@ -31,9 +35,6 @@ export interface ConfigSchema {
   description: string;
   fields: ConfigField[];
 }
-
-import type { WOPRPluginContext } from "@wopr-network/plugin-types";
-export type { WOPRPluginContext };
 
 // Local WOPRPlugin with BlueBubbles-specific manifest fields not yet in plugin-types
 export interface WOPRPlugin {
