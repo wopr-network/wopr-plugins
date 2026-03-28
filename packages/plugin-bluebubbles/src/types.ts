@@ -33,6 +33,7 @@ export interface ConfigSchema {
 }
 
 import type { WOPRPluginContext } from "@wopr-network/plugin-types";
+
 export type { WOPRPluginContext };
 
 // Local WOPRPlugin with BlueBubbles-specific manifest fields not yet in plugin-types

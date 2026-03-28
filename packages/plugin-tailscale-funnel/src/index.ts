@@ -554,4 +554,4 @@ const plugin: WOPRPlugin = {
 };
 
 export default plugin;
-export type { FunnelExtension, FunnelStatus, FunnelInfo, HostnameChangeCallback };
+export type { FunnelExtension, FunnelInfo, FunnelStatus, HostnameChangeCallback };
