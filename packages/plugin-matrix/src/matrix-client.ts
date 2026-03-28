@@ -49,7 +49,7 @@ export async function createMatrixClient(config: MatrixClientConfig): Promise<Ma
 
   let cryptoProvider: RustSdkCryptoStorageProvider | undefined;
   if (config.enableEncryption !== false) {
-    cryptoProvider = new RustSdkCryptoStorageProvider(path.join(storageDir, "crypto"));
+    cryptoProvider = new RustSdkCryptoStorageProvider(path.join(storageDir, "crypto"), 1 as any);
     logger.info({ msg: "E2EE crypto storage initialized", path: path.join(storageDir, "crypto") });
   }
 
