@@ -3,7 +3,7 @@
   "devDependencies": {
     "@types/node": "^25.3.2",
     "@wopr-network/plugin-types": "workspace:*",
-    "esbuild": "^0.27.3",
+    "esbuild": "^0.28.0",
     "jsdom": "^29.0.1"
   },
   "files": [
