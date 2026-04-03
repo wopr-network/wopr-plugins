@@ -15,7 +15,7 @@
     "@twurple/auth": "^8.0.0",
     "@twurple/chat": "^8.0.0",
     "@twurple/api": "^8.0.0",
-    "@twurple/eventsub-ws": "^8.0.0",
+    "@twurple/eventsub-ws": "^8.1.3",
     "@wopr-network/plugin-types": "workspace:*"
   },
   "devDependencies": {
