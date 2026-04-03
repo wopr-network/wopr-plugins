@@ -2,7 +2,7 @@
   "author": "TSavo",
   "dependencies": {
     "@wopr-network/plugin-types": "workspace:*",
-    "axios": "^1.13.5",
+    "axios": "^1.14.0",
     "botbuilder": "^4.22.0",
     "winston": "^3.11.0"
   },
